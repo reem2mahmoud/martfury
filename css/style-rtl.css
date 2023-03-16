@@ -1,0 +1,80 @@
+
+
+#homepage-1 .ps-home-banner .owl-slider .owl-stage-outer {
+  direction: ltr;
+}
+
+.no-js .owl-carousel, .owl-carousel.owl-loaded {
+  display: block;
+  direction: ltr;
+}
+
+#homepage-1 .ps-home-banner .ps-section__left {
+  padding-left: 30px;
+  padding-right: 0px;
+
+}
+
+
+.ps-dropdown > a {
+  padding-right: 0px;
+  padding-left: 20px;
+}
+
+
+.ps-dropdown > a::after {
+right: auto;
+  left: 0;
+}
+
+
+.navigation__extra .ps-dropdown img {
+  margin-left: 8px;
+   margin-right: 0px;
+}
+
+.sub-menu > li > a {
+
+  text-align: right;
+}
+
+.menu--product-categories .menu__content,.menu > li.has-mega-menu .mega-menu , .menu > li .mega-menu{
+
+  right: 0;
+ left: auto;
+}
+
+.menu--product-categories .menu__toggle i {
+  margin-right: 0px;
+  margin-left: 10px;
+}
+
+
+.ps-block--site-features .ps-block__right {
+  padding-right: 25px;
+   padding-left: 0px;
+}
+
+
+.ps-block--countdown-deal .ps-block__left h3 {
+ margin-right: 0px;
+  margin-left: 70px;
+}
+
+
+.ps-block--download-app .download-link a {
+  margin-left: 18px;
+  margin-right: 0px;
+}
+
+.form-group--nest .ps-btn {
+  border-radius: 4px 0px 0px 4px;
+
+}
+
+.form-group--nest input {
+  border-radius: 0px 4px 4px 0px;
+
+  border-left: none;
+  border-right: 1px solid #dddddd;
+}
