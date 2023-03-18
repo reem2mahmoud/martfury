@@ -26,6 +26,101 @@
     <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* shopping-cart */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .ps-product__price .price-before {
+            margin-bottom: 0 !important;
+        }
+
+        .ps-product__price .price-before del {
+            font-size: 2vw;
+            color: red
+        }
+
+        .ps-product__price .price-after {
+            font-size: 1.5vw;
+            padding-top: 0;
+            color: black
+        }
+
+
+
+        .ps-product__price .price-after .sale_percentage {
+            background-color: rgb(238, 224, 144);
+            margin: 0 30px;
+            padding: 0 5px;
+            width: fit-content;
+            height: fit-content;
+            font-size: 12px
+        }
+
+        .cart-actions i {
+            font-size: 17px
+        }
+
+        .shipping_way {
+            background-color: #08AEEC;
+            color: white;
+            font-weight: 700;
+            border-radius: 10px;
+            width: fit-content;
+            height: fit-content;
+            padding: 5px 20px;
+            margin: 20px 10px;
+            text-transform: uppercase;
+            font-size: 13px
+        }
+
+        .form-group--number {
+            border-radius: 0 !important;
+            width: 128px;
+            margin: 10px;
+        }
+
+        .form-group--number button {
+            background-color: #08AEEC;
+            color: white;
+        }
+
+        .checkout-btn {
+            color: white;
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 500;
+            background-color: #08AEEC;
+        }
+
+        .total-price p {
+            font-size: 20px;
+            font-weight: 400
+        }
+
+        .total-price:nth-last-of-type(1) {
+            border-top: 1px solid rgb(206, 205, 205)
+        }
+
+        .coupon_form input {
+            height: 38px;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #f1eded;
+        }
+
+        .coupon_form button {
+            height: 33px;
+            font-size: 15px;
+        }
+
+        .card-header p {
+            text-transform: uppercase;
+            font-size: 15px;
+            color: black;
+        }
+
         /* footer */
 
         .ps-footer {
@@ -113,6 +208,13 @@
             font-size: 25px;
         }
 
+        .product_price {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
         /* media */
         @media screen and (max-width: 1199.99px) {
             .welcome-message {
@@ -131,6 +233,8 @@
             .liks span {
                 font-size: 12px
             }
+
+
         }
 
         @media screen and (max-width: 900px) {
@@ -164,6 +268,13 @@
 
             .connect_container {
                 text-align: center
+            }
+
+            .product_price {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
             }
 
 
@@ -964,33 +1075,132 @@
         </div>
         <div class="ps-section--shopping ps-shopping-cart">
             <div class="container">
+                <div class="row m-2">
+                    <h4>
+                        <a type="button" href="#">
+                            <i class="fa fa-arrow-circle-left me-1" aria-hidden="true"></i>
+                            <!-- in arabic mode -->
+                            <!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> -->
+                            Continue shopping</a>
+                    </h4>
+                </div>
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-12 col-lg-8 mt-4">
                         <div class="card">
-                            <div class="card-header">
-                                Defacto Woman Regular Fit Crew Neck Pullover
+                            <div class="card-header ">
+                                <p> cart <span class="badge badge-pill badge-primary">4</span>
+                                </p>
                             </div>
-                            <div class="card-body">
+                            <div class="row card-body">
                                 <!-- product-image -->
-                                <div class="col-3">
+                                <div class="col-3 mt-2">
                                     <img src="./1.jpg" alt="product-name">
                                 </div>
                                 <!--product-details  -->
-                                <div class="col-6">
+                                <div class="col-6 mt-2">
                                     <h5>
                                         Defacto Woman Regular Fit Crew Neck Pullover
                                     </h5>
-                                    
+                                    <p>
+                                        <img src="./return.png" width="30" height="30" alt="return">
+                                        <span> This item cannot be exchanged or returned.</span>
+                                    </p>
+                                    <p>
+
+                                        <img src="./warranty.png" width="30" height="30" alt="warranty">
+                                        <span>no warranty</span>
+                                    </p>
+                                    <p>
+
+                                        <img src="./seller.png" width="30" height="30" alt="sold-by">
+                                        <span>YOUNG SHOP</span>
+                                    </p>
+                                    <p>
+
+                                        <img src="./delivery-date.png" width="23" height="23" alt="delivery-date">
+                                        <span class="mx-2">Delivery by 2 JAN</span>
+                                    </p>
+                                    <p>
+
+                                        <span class="font-weight-bold">size : </span><span class="border p-2">SM</span>
+                                    </p>
+                                    <figure>
+                                        <figcaption>Colors</figcaption>
+                                        <div class="ps-variant ps-variant--color color--1"><span
+                                                class="ps-variant__tooltip">Black</span></div>
+                                        <div class="ps-variant ps-variant--color color--2"><span
+                                                class="ps-variant__tooltip"> Gray</span></div>
+                                    </figure>
                                 </div>
                                 <!-- product-price -->
-                                <div class="col-3"></div>
+                                <div class="col-12 col-md-3  mt-2 product_price">
+                                    <!-- price -->
+                                    <h4 class="ps-product__price">
+                                        <p class="price-before"><del> $60.00 </del></p>
+                                        <p class="price-after  d-flex justify-content-between">
+                                            <span>$30 .00</span>
+                                            <span class="sale_percentage">50%</span>
+                                        </p>
+                                    </h4>
+                                    <!-- shipping -->
+                                    <div class="text-center my-2">
+                                        <p class="shipping_way">
+                                            <i class="fa fa-paper-plane mx-2" aria-hidden="true"></i> express
+                                        </p>
+                                    </div>
+                                    <!-- product-count -->
+                                    <div class="form-group--number">
+                                        <button class="up">+</button>
+                                        <button class="down">-</button>
+                                        <input class="form-control" type="text" placeholder="1" value="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex mx-3 cart-actions">
+                                    <span class="mx-4"><i class="fa fa-trash-o text-primary" aria-hidden="true"></i>
+                                        remove item</span>
+                                    <span><i class="fa fa-heart-o text-danger" aria-hidden="true"></i> add to
+                                        whishlist</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class=" col-4">
-                        <div class="card">
-                            jljljlkj
+                    <div class="col-12  col-lg-4 mt-4">
+                        <div class="card bg-light">
+                            <div class="card-header">
+                                <p> cart summary </p>
+                            </div>
+                            <div class="card-body">
+                                <form action="" method="" class="my-4">
+                                    <!-- coupon code -->
+                                    <div class="form-group--nest">
+                                        <input class="form-control" type="text" placeholder="Coupon Code">
+                                        <button class="ps-btn text-white">Apply</button>
+                                    </div>
+                                    <!-- coupon-code-error  -->
+                                    <span class="text-danger text-capitalize">code valid on select items only</span>
+                                </form>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <p class="text-capitalize">subtotal price </p>
+                                    </div>
+                                    <p>2500$</p>
+                                </div>
+
+                                <p>total items (2)</p>
+                                <p>shipping fees : 500$ </p>
+                                <p>Cash on Delivery fees : 300$</p>
+                                <div class="d-flex justify-content-between total-price pt-3">
+                                    <div class="d-flex">
+                                        <p class="text-capitalize">total </p>
+                                        <span class="mt-2">(inclusive VAT)</span>
+                                    </div>
+                                    <p class="text-danger">3000$</p>
+                                </div>
+                            </div>
                         </div>
+                        <button class="col-12 btn  my-2 py-3 checkout-btn">procced to checkout</button>
                     </div>
                 </div>
             </div>
