@@ -1920,10 +1920,13 @@
                                                     <img src="./mastercard.svg" alt="visa" width="60" height="50">
                                                 </div>
                                             </div>
-                                            <button class="btn  mx-auto mb-4 add_card_btn">
+                                            <button class="btn  mx-auto mb-4 add_card_btn" type="button"
+                                                data-toggle="collapse" data-target="#collapseExample"
+                                                aria-expanded="false" aria-controls="collapseExample">
                                                 add new card
                                             </button>
-                                            <div class="show_details_block details flex-center  border bg-light p-4">
+                                            <div class="collapse details flex-center  border bg-light p-4"
+                                                id="collapseExample">
                                                 <form class="popup flex p-lg">
                                                     <!-- CARD FORM -->
                                                     <div class="flex-fill flex-vertical">
@@ -3015,11 +3018,6 @@
             $("#" + tab_id).addClass('current');
         })
         // card
-
-        // display  details
-        $(".add_card_btn").click(function () {
-            $(".visa .show_details_block").css("display", "block")
-        })
 
 
         $('#vodafone_check').click(function () {

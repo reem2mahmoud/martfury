@@ -26,76 +26,113 @@
     <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* shopping-cart */
-        * {
-            padding: 0;
-            margin: 0;
+        .ps-filter-products {
+            background-color: #F5F5F5;
+            padding: 30px 0;
         }
 
-        .warning_block .fa-exclamation-triangle {
-            color: orange;
-            font-size: 30px
+        /* sections */
+        .filter-section .card,
+        .products-section .card {
+            background-color: #fff
         }
 
-        .warning_block .warning_btn {
-            width: 51px;
-            height: 45px;
-            border-radius: 50%;
-            padding: 6px 8px;
-            text-align: center;
-            line-height: 27px;
-            border: none;
+        #departments,
+        .sub-category,
+        .sections {
+            list-style-type: none;
+
         }
 
-        .warning {
+        #departments li {
+            margin: 12px 0;
 
-
-            overflow: visible;
-
-            position: relative;
         }
 
-        #close_btn {
-            position: absolute;
-            background: #EFEFEF;
-            color: white;
-            top: -17px;
-            right: -13px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: none;
+        .hide {
+            display: none
+        }
+
+        #departments:hover {
+            cursor: pointer;
+        }
+
+        #departments li a {
+            text-transform: capitalize;
+            font-size: 15px;
+
+        }
+
+        #search-input {
+            height: 38px
+        }
+
+        .percentage_form label,
+        .rating_form label {
+            padding: 6px 21px;
+            font-size: 15px;
+        }
+
+        .seller label,
+        .brands label,
+        .arrivales label {
+            padding: 0 21px;
+            font-size: 15px;
+            text-transform: capitalize;
+
+        }
+
+        .discount label {
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+
+        .seller span,
+        .brands span,
+        .arrivales span {
+            margin-top: 10px;
+            color: #FFF
+        }
+
+        .seller-list,
+        .brands-list {
+            height: 150px;
+            overflow: auto
+        }
+
+        input[type='checkbox'] {
+            width: 16px;
+            height: 16px
+        }
+
+        .range-block input {
+            height: 38px;
+            border-radius: 5px
+        }
+
+        .search_range i {
+            font-size: 15px;
+            color: #DDD
         }
 
 
-        .ps-product__price .price-before {
-            margin-bottom: 0 !important;
+        .form-check {
+            margin-top: 10px
         }
 
-        .ps-product__price .price-before del {
-            font-size: 2vw;
-            color: red
+        input[type='radio'] {
+            margin-top: 8px;
+            width: 16px;
+            height: 16px
         }
 
-        .ps-product__price .price-after {
-            font-size: 1.5vw;
-            padding-top: 0;
-            color: black
+        .fa-star {
+            color: rgb(212, 208, 208);
+
         }
 
-
-
-        .ps-product__price .price-after .sale_percentage {
-            background-color: rgb(238, 224, 144);
-            margin: 0 30px;
-            padding: 0 5px;
-            width: fit-content;
-            height: fit-content;
-            font-size: 12px
-        }
-
-        .cart-actions i {
-            font-size: 17px
+        .checked {
+            color: #08AEEC;
         }
 
         .shipping_way {
@@ -111,54 +148,148 @@
             font-size: 13px
         }
 
-        .form-group--number {
-            border-radius: 0 !important;
-            width: 128px;
-            margin: 10px;
-        }
-
-        .form-group--number button {
-            background-color: #08AEEC;
-            color: white;
-        }
-
-        .checkout-btn {
-            color: white;
+        .sort_block select {
+            /* Reset Select */
+            appearance: none;
+            outline: 0;
+            border: 0;
+            box-shadow: none;
+            /* Personalize */
+            flex: 1;
+            padding: 0 1em;
+            color: #fff;
+            background-color: #bfc2c3;
+            background-image: none;
+            cursor: pointer;
             font-size: 15px;
-            text-transform: uppercase;
-            font-weight: 500;
-            background-color: #08AEEC;
+            font-weight: 700
         }
 
-        .total-price p {
+        .sort_block select::-ms-expand {
+            display: none;
+        }
+
+        .sort_block {
+            position: relative;
+            display: flex;
+            width: 13em;
+            height: 3em;
+            border-radius: .25em;
+            overflow: hidden;
+        }
+
+        .sort_block::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 1em;
+            background-color: #aeb1b3;
+            transition: .25s all ease;
+            pointer-events: none;
+            color: #ffff
+        }
+
+        .sort_block:hover::after {
+            color: #08AEEC;
+        }
+
+        .price-after {
             font-size: 20px;
-            font-weight: 400
+            font-weight: 400;
         }
 
-        .total-price:nth-last-of-type(1) {
-            border-top: 1px solid rgb(206, 205, 205)
+        .product_desc {
+            white-space: normal;
         }
 
-        .coupon_form input {
-            height: 38px;
-            width: 100%;
-            background-color: white;
-            border: 1px solid #f1eded;
+        .heart {
+            width: 77px;
+            height: 73px;
+            background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            transition: background-position 1s steps(28);
+            transition-duration: 0s;
         }
 
-        .coupon_form button {
-            height: 33px;
+        .heart.is-active {
+            transition-duration: 1s;
+            background-position: -2800px 0;
+        }
+
+        .cart_btn {
+            background-color: #08AEEC;
+            color: white;
             font-size: 15px;
+            text-transform: capitalize;
+            font-weight: 600;
+            display: none;
         }
 
-        .card-header p {
-            text-transform: uppercase;
-            font-size: 15px;
-            color: black;
+        .product_details:hover {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border: none
         }
+
+        .product_details:hover .cart_btn {
+            display: block;
+
+        }
+
+        .rating .starts {
+            background-color: #08AEEC;
+            border-radius: 5px;
+            padding: 2px 3px;
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .rating .starts i {
+            color: white !important;
+        }
+
+        .delivery_option span,
+        .delivery_option i {
+            color: #08AEEC;
+            font-size: 11px;
+            font-weight: 600;
+
+        }
+
+        .has_items ul {
+            border-left: 1px solid #a09e9e;
+        }
+
+
+        @media screen and (min-width: 992px) {
+            .container {
+                max-width: 1115px !important;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .container {
+                max-width: 884px !important;
+            }
+
+        }
+
+        @media screen and (max-width:400px) {
+
+            .sort_block {
+
+                width: 9em;
+
+            }
+
+        }
+
+
+
+
 
         /* footer */
-
         .ps-footer {
             background-color: #08AEEC;
             padding: 20px
@@ -305,14 +436,6 @@
             .connect_container {
                 text-align: center
             }
-
-            .product_price {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-            }
-
 
         }
 
@@ -1109,170 +1232,564 @@
                 </ul>
             </div>
         </div>
-        <div class="ps-section--shopping ps-shopping-cart">
+        <!-- section -->
+        <div class="ps-filter-products">
             <div class="container">
-                <div class="row m-2">
-                    <h4>
-                        <a type="button" href="#">
-                            <i class="fa fa-arrow-circle-left me-1" aria-hidden="true"></i>
-                            <!-- in arabic mode -->
-                            <!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> -->
-                            Continue shopping</a>
-                    </h4>
-                </div>
-                <div class="row my-4  warning_block">
-                    <div class="col-12 col-lg-8">
-                        <div class="card">
-                            <div class="warning d-flex align-items-center p-4">
-                                <button class="warning_btn"> <i class="fa fa-exclamation-triangle"
-                                        aria-hidden="true"></i></button>
-                                <button id="close_btn">
-                                    <i class="fa fa-times" aria-hidden="true"></i>
-                                </button>
-                                <p class="mx-4 text-secondary">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has
-                                    been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer
-                                    took a
-                                    galley of type and scrambled it to make a type specimen book.
-                                </p>
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
-                </div>
                 <div class="row">
-                    <div class="col-12 col-lg-8 mt-4">
-                        <div class="card">
-                            <div class="card-header ">
-                                <p> cart <span class="badge badge-pill badge-primary">4</span>
-                                </p>
-                            </div>
-                            <div class="row card-body">
-                                <!-- product-image -->
-                                <div class="col-3 mt-2">
-                                    <img src="./1.jpg" alt="product-name">
-                                </div>
-                                <!--product-details  -->
-                                <div class="col-6 mt-2">
-                                    <h5>
-                                        Defacto Woman Regular Fit Crew Neck Pullover
-                                    </h5>
-                                    <p>
-                                        <img src="./return.png" width="30" height="30" alt="return">
-                                        <span> This item cannot be exchanged or returned.</span>
-                                    </p>
-                                    <p>
+                    <!--BEGIN: filter-section -->
+                    <div class="col-12 col-md-4 col-lg-3 filter-section mt-3">
+                        <div class="card  p-4">
+                            <!-- category -->
+                            <div class="category pb-4 border-bottom">
+                                <p class="text-uppercase">category</p>
+                                <div>
+                                    <p class="category-name text-capitalize">supermarket</p>
 
-                                        <img src="./warranty.png" width="30" height="30" alt="warranty">
-                                        <span>no warranty</span>
-                                    </p>
-                                    <p>
+                                    <ul id="departments">
+                                        <li class="has_items category">
+                                            <a href="#">
 
-                                        <img src="./seller.png" width="30" height="30" alt="sold-by">
-                                        <span>YOUNG SHOP</span>
-                                    </p>
-                                    <p>
+                                                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                                air fresheners </a>
+                                            <ul class="sub-category hide">
+                                                <li class="has_items sub-category-item">
+                                                    <a href="#">
+                                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i> One</a>
+                                                    <ul class="sections hide">
+                                                        <li class="section-item">11</li>
+                                                        <li class="section-item">22</li>
+                                                        <li class="section-item">33</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has_items sub-category-item">
+                                                    <a href="#">
+                                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i> two</a>
+                                                    <ul class="sections hide">
+                                                        <li class="section-item">111</li>
+                                                        <li class="section-item">222</li>
+                                                        <li class="section-item">333</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
 
-                                        <img src="./delivery-date.png" width="23" height="23" alt="delivery-date">
-                                        <span class="mx-2">Delivery by 2 JAN</span>
-                                    </p>
-                                    <p>
-
-                                        <span class="font-weight-bold">size : </span><span class="border p-2">SM</span>
-                                    </p>
-                                    <figure>
-                                        <figcaption>Colors</figcaption>
-                                        <div class="ps-variant ps-variant--color color--1"><span
-                                                class="ps-variant__tooltip">Black</span></div>
-                                        <div class="ps-variant ps-variant--color color--2"><span
-                                                class="ps-variant__tooltip"> Gray</span></div>
-                                    </figure>
-                                </div>
-                                <!-- product-price -->
-                                <div class="col-12 col-md-3  mt-2 product_price">
-                                    <!-- price -->
-                                    <h4 class="ps-product__price">
-                                        <p class="price-before"><del> $60.00 </del></p>
-                                        <p class="price-after  d-flex justify-content-between">
-                                            <span>$30 .00</span>
-                                            <span class="sale_percentage">50%</span>
-                                        </p>
-                                    </h4>
-                                    <!-- shipping -->
-                                    <div class="text-center my-2">
-                                        <p class="shipping_way">
-                                            <i class="fa fa-paper-plane mx-2" aria-hidden="true"></i> express
-                                        </p>
-                                    </div>
-                                    <!-- product-count -->
-                                    <div class="form-group--number">
-                                        <button class="up">+</button>
-                                        <button class="down">-</button>
-                                        <input class="form-control" type="text" placeholder="1" value="1">
-                                    </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div class="d-flex mx-3 cart-actions">
-                                    <span class="mx-4"><i class="fa fa-trash-o text-primary" aria-hidden="true"></i>
-                                        remove item</span>
-                                    <span><i class="fa fa-heart-o text-danger" aria-hidden="true"></i> add to
-                                        whishlist</span>
+                            <!-- brand -->
+                            <div class="brands pb-4 mt-3 border-bottom">
+                                <p class="text-uppercase">brands</p>
+                                <!-- search -->
+                                <div class="input-group mt-2">
+                                    <input class="form-control border-end-0 border rounded-pill" type="search"
+                                        placeholder="search brand" id="search-input">
+
+                                </div>
+                                <!-- brands -->
+                                <div class="brands-list">
+                                    <form method="" action="" class="mx-4 my-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="Lynks">
+                                                <label class="form-check-label" for="Lynks">
+                                                    COVERDERM
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">14</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="noon">
+                                                <label class="form-check-label" for="noon">
+                                                    Neutrogena
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">140</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="noon Fashion">
+                                                <label class="form-check-label" for="noon Fashion">
+                                                    Eucerin
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">110</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ART GALLERY">
+                                                <label class="form-check-label" for="ART GALLERY">
+                                                    Hawaiian Tropic
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">110</span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- discount -->
+                            <div class="discount pb-4 mt-3 border-bottom">
+                                <p class="text-uppercase">discount</p>
+
+                                <div class="form-check form-check-inline mt-2">
+                                    <input class="form-check-input" type="checkbox" id="discount_checkbox"
+                                        value="option1">
+                                    <label class="form-check-label" for="discount_checkbox">show only discount
+                                        products</label>
+                                </div>
+                            </div>
+                            <!-- price -->
+                            <div class="range pb-4 mt-3 border-bottom">
+                                <p class="text-uppercase">price</p>
+                                <form class="row d-flex align-items-center" action="" method="">
+                                    <!-- start-range -->
+                                    <div class="range-block col-5 form-group mb-2">
+                                        <input type="text" class="form-control col-12" id="start_range"
+                                            placeholder="Start">
+                                    </div>
+                                    <!-- divider-range -->
+                                    <div class="divider-range" class="col-1"> - </div>
+                                    <!-- end-range -->
+                                    <div class="range-block col-5 form-group  mb-2">
+                                        <input type="text" class="form-control col-12" id="end_range" placeholder="End">
+                                    </div>
+                                    <!-- search button -->
+                                    <button class="col-1 btn search_range">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <!-- percentage -->
+                            <div class="range pb-4 mt-3 border-bottom">
+                                <p class="text-uppercase">Percentage</p>
+                                <form method="" action="" class="mx-4 my-3 percentage_form">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="discpunt_percentage"
+                                            id="percentage1" value="option1" checked>
+                                        <label class="form-check-label" for="percentage1">
+                                            50% or more
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="discpunt_percentage"
+                                            id="percentage2" value="option2">
+                                        <label class="form-check-label" for="percentage2">
+                                            40% or more
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="discpunt_percentage"
+                                            id="percentage3" value="option2">
+                                        <label class="form-check-label" for="percentage3">
+                                            30% or more
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="discpunt_percentage"
+                                            id="percentage4" value="option2">
+                                        <label class="form-check-label" for="percentage4">
+                                            20% or more
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="discpunt_percentage"
+                                            id="percentage5" value="option2">
+                                        <label class="form-check-label" for="percentage5">
+                                            10% or more
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- product-rating -->
+                            <div class="product-rating pb-4 mt-3 border-bottom">
+                                <p class="text-uppercase">product rating</p>
+                                <form method="" action="" class="mx-4 my-3 rating_form">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating_starts" id="5starts"
+                                            value="option1" checked>
+                                        <label class="form-check-label" for="5starts">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating_starts" id="4starts"
+                                            value="option1" checked>
+                                        <label class="form-check-label" for="4starts">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating_starts" id="3starts"
+                                            value="option1" checked>
+                                        <label class="form-check-label" for="3starts">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating_starts" id="2starts"
+                                            value="option1" checked>
+                                        <label class="form-check-label" for="2starts">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="rating_starts" id="1starts"
+                                            value="option1" checked>
+                                        <label class="form-check-label" for="1starts">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- seller -->
+                            <div class="seller pb-4 mt-3 border-bottom">
+                                <p class="text-uppercase">seller</p>
+                                <!-- search -->
+                                <div class="input-group mt-2">
+                                    <input class="form-control border-end-0 border rounded-pill" type="search"
+                                        placeholder="search seller" id="search-input">
+
+                                </div>
+                                <!-- seller-list -->
+                                <div class="seller-list">
+                                    <form method="" action="" class="mx-4 my-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="Lynks">
+                                                <label class="form-check-label" for="Lynks">
+                                                    Lynks
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">14</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="noon">
+                                                <label class="form-check-label" for="noon">
+                                                    noon
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">140</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="noon Fashion">
+                                                <label class="form-check-label" for="noon Fashion">
+                                                    noon Fashion
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">110</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ART GALLERY">
+                                                <label class="form-check-label" for="ART GALLERY">
+                                                    ART GALLERY
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">110</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="Lynks">
+                                                <label class="form-check-label" for="Lynks">
+                                                    Lynks
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">14</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ART GALLERY">
+                                                <label class="form-check-label" for="ART GALLERY">
+                                                    BIOSOLIS
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">110</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ART GALLERY">
+                                                <label class="form-check-label" for="ART GALLERY">
+                                                    ART GALLERY
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">110</span>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- New-arrivals -->
+                            <div class="arrivales pb-4 mt-3 border-bottom">
+                                <p class="text-uppercase">new arrivals</p>
+
+                                <!-- arrivales-list -->
+                                <div class="arrivales-list">
+                                    <form method="" action="" class="mx-4 my-3">
+
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="7-days">
+                                                <label class="form-check-label" for="7-days">
+                                                    Last 7 Days
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">110</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="30-days">
+                                                <label class="form-check-label" for="30-days">
+                                                    Last 30 Days
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">14</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="60-days">
+                                                <label class="form-check-label" for="60-days">
+                                                    Last 60 Days
+                                                </label>
+                                            </div>
+                                            <span class="badge badge-primary">14</span>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- Delivery -->
+                            <div class="arrivales pb-1 mt-3">
+                                <p class="text-uppercase">Delivery</p>
+                                <div class="d-flex justify-content-center my-2">
+                                    <p class="shipping_way">
+                                        <i class="fa fa-paper-plane mx-2" aria-hidden="true"></i> express
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12  col-lg-4 mt-4">
-                        <div class="card bg-light">
-                            <div class="card-header">
-                                <p> cart summary </p>
+                    <!--END: filter-section -->
+
+                    <!--BEGIN: products-section -->
+                    <div class="col-12 col-md-8 col-lg-9 products-section mt-3">
+                        <div class="card p-4">
+                            <div
+                                class="product_header d-flex justify-content-between align-items-center border-bottom pb-4">
+                                <h4 class="card-title text-capitalize">supermarket</h4>
+                                <div class="sort_block">
+                                    <select>
+                                        <option value="0" disabled selected>Sort By</option>
+                                        <option value="1">recommedned</option>
+                                        <option value="2">new arrivals</option>
+
+                                    </select>
+                                </div>
                             </div>
                             <div class="card-body">
-                                <form action="" method="" class="my-4">
-                                    <!-- coupon code -->
-                                    <div class="form-group--nest">
-                                        <input class="form-control" type="text" placeholder="Coupon Code">
-                                        <button class="ps-btn text-white">Apply</button>
-                                    </div>
-                                    <!-- coupon-code-error  -->
-                                    <span class="text-danger text-capitalize">code valid on select items only</span>
-                                </form>
-                                <div class="d-flex justify-content-between">
-                                    <div class="d-flex">
-                                        <p class="text-capitalize">subtotal price </p>
-                                    </div>
-                                    <p>2500$</p>
-                                </div>
 
-                                <p>total items (2)</p>
-                                <p>shipping fees : 500$ </p>
-                                <p>Cash on Delivery fees : 300$</p>
-                                <div class="d-flex justify-content-between total-price pt-3">
-                                    <div class="d-flex">
-                                        <p class="text-capitalize">total </p>
-                                        <span class="mt-2">(inclusive VAT)</span>
+                                <!-- products-block -->
+                                <div class="row mt-4">
+                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                        <img class="card-img-top" src="./img/products/home-9/a-1.jpg"
+                                            alt="Card image cap">
+                                        <div style="position: absolute;top: -29px;right: -8px;">
+
+                                            <div class="stage">
+                                                <div class="heart"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <!-- title -->
+                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                            <!-- price -->
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="price-after text-danger">200$</p>
+                                                <p class="price-before"><del>400$</del></p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <!-- rating  -->
+
+                                                <div class="rating mb-3">
+                                                    <span class="starts"> <i class="fa fa-star checked"></i>
+                                                        4.2</span>
+                                                    <span class="number">(201)</span>
+                                                </div>
+
+
+                                                <!-- delivery -->
+                                                <div class="delivery_option mb-3">
+
+                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                    <span class="text-uppercase">express</span>
+                                                </div>
+                                            </div>
+                                            <!-- cart-btn -->
+                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
+                                        </div>
                                     </div>
-                                    <p class="text-danger">3000$</p>
+                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                        <img class="card-img-top" src="./img/products/home/2.jpg" alt="Card image cap">
+                                        <div style="position: absolute;top: -29px;right: -8px;">
+
+                                            <div class="stage">
+                                                <div class="heart"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <!-- title -->
+                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                            <!-- price -->
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="price-after text-danger">200$</p>
+                                                <p class="price-before"><del>400$</del></p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <!-- rating  -->
+
+                                                <div class="rating mb-3">
+                                                    <span class="starts"> <i class="fa fa-star checked"></i>
+                                                        4.2</span>
+                                                    <span class="number">(201)</span>
+                                                </div>
+
+
+                                                <!-- delivery -->
+                                                <div class="delivery_option mb-3">
+
+                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                    <span class="text-uppercase">express</span>
+                                                </div>
+                                            </div>
+                                            <!-- cart-btn -->
+                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                        <img class="card-img-top" src="./img/products/home/3.jpg" alt="Card image cap">
+                                        <div style="position: absolute;top: -29px;right: -8px;">
+
+                                            <div class="stage">
+                                                <div class="heart"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <!-- title -->
+                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                            <!-- price -->
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="price-after text-danger">900$</p>
+                                                <p class="price-before"><del>1000$</del></p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <!-- rating  -->
+
+                                                <div class="rating mb-3">
+                                                    <span class="starts"> <i class="fa fa-star checked"></i>
+                                                        1.2</span>
+                                                    <span class="number">(89)</span>
+                                                </div>
+
+
+                                                <!-- delivery -->
+                                                <div class="delivery_option mb-3">
+
+                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                    <span class="text-uppercase">express</span>
+                                                </div>
+                                            </div>
+                                            <!-- cart-btn -->
+                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                        <img class="card-img-top" src="./img/products/home/4.jpg" alt="Card image cap">
+                                        <div style="position: absolute;top: -29px;right: -8px;">
+
+                                            <div class="stage">
+                                                <div class="heart"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <!-- title -->
+                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                            <!-- price -->
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="price-after text-danger">800$</p>
+                                                <p class="price-before"><del>380$</del></p>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <!-- rating  -->
+
+                                                <div class="rating mb-3">
+                                                    <span class="starts"> <i class="fa fa-star checked"></i>
+                                                        2.6</span>
+                                                    <span class="number">(101)</span>
+                                                </div>
+
+
+                                                <!-- delivery -->
+                                                <div class="delivery_option mb-3">
+
+                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                    <span class="text-uppercase">express</span>
+                                                </div>
+                                            </div>
+                                            <!-- cart-btn -->
+                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <button class="col-12 btn  my-2 py-3 checkout-btn">procced to checkout</button>
                     </div>
+
+                    <!--END: products-section -->
                 </div>
             </div>
 
         </div>
+
     </div>
 
     <!-- begin :footer -->
-
     <footer class="ps-footer">
         <div class="ps-container ">
             <!-- main -->
@@ -1864,10 +2381,25 @@
     <!-- custom scripts-->
     <script src="js/main.js"></script>
     <script>
-        $('#close_btn').click(function () {
-            console.log("hgjhg")
-            $('.warning_block').css("display", "none")
+        $(function () {
+            $(".heart").on("click", function () {
+                $(this).toggleClass("is-active");
+            });
+
+        });
+        // $("#departments > li").click(function () {
+        //     $(this).find("ul.sub-category").toggleClass('hide');
+        //     $(this).find('.fa-plus').toggleClass('fa-minus')
+        // });
+
+        $('.has_items').click(function () {
+
+            $(this).children("ul").toggleClass("hide")
+            $(this).children('a').find('.fa-plus-square-o').toggleClass('fa-minus-square-o')
         })
+
+
+
     </script>
 </body>
 
