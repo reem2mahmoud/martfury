@@ -1,0 +1,221 @@
+/* slider */
+#homepage-1 .ps-home-banner {
+    display: block;
+    height: 265px;
+}
+
+.ps-home-banner .owl-carousel .owl-nav button.owl-next,
+.ps-home-banner .owl-carousel .owl-nav button.owl-prev {
+    background-color: #f1eaea;
+    border-radius: 50%;
+    margin: 0 30px
+}
+
+.ps-home-banner .ps-carousel--nav-inside .owl-dots .owl-dot {
+    background-color: #b3afaf !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* deals */
+.ps-deal-of-day .ps-section__header,
+.ps-section__header {
+    background-color: #08AEEC;
+    padding: 10px;
+    border-radius: 5px
+}
+
+.ps-deal-of-day .ps-block__left h3 {
+    color: #FFF;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 70px;
+    text-transform: capitalize;
+}
+
+.ps-deal-of-day .ps-section__header>a,
+.ps-product-list .ps-section__header>a {
+    text-transform: uppercase;
+    border-bottom: 0;
+    color: white;
+    font-weight: 700;
+}
+
+.ps-deal-of-day .ps-section__header>a:hover,
+.ps-product-list .ps-section__header>a:hover {
+    color: rgb(15, 15, 15);
+}
+
+.ps-product .ps-product__title {
+    height: 50px
+}
+
+/* all-features */
+.all-features .item-feature {
+    background: #f7ebec;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.all-features .item-feature img {
+    margin: auto
+}
+
+.all-features .feature-title {
+    text-transform: capitalize;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+/* top-selling , new-arrivals  , last-viewed */
+
+.ps-product-list .ps-section__header {
+    background-color: #08AEEC;
+    padding: 10px;
+    border-radius: 5px
+}
+
+.ps-product-list .ps-section__header .links a {
+    color: white;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 700;
+
+}
+
+
+.checked {
+    color: #08AEEC;
+}
+
+.shipping_way {
+    background-color: #08AEEC;
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 20px;
+    margin: 20px 10px;
+    text-transform: uppercase;
+    font-size: 13px
+}
+
+.sort_block select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: #bfc2c3;
+    background-image: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700
+}
+
+.sort_block select::-ms-expand {
+    display: none;
+}
+
+.sort_block {
+    position: relative;
+    display: flex;
+    width: 13em;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+.sort_block::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #aeb1b3;
+    transition: .25s all ease;
+    pointer-events: none;
+    color: #ffff
+}
+
+.sort_block:hover::after {
+    color: #08AEEC;
+}
+
+.price-after {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.product_desc {
+    white-space: normal;
+}
+
+.heart {
+    width: 77px;
+    height: 73px;
+    background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    transition: background-position 1s steps(28);
+    transition-duration: 0s;
+}
+
+.heart.is-active {
+    transition-duration: 1s;
+    background-position: -2800px 0;
+}
+
+.cart_btn {
+    background-color: #08AEEC;
+    color: white;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 600;
+    display: none;
+}
+
+.product_details:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: none
+}
+
+.product_details:hover .cart_btn {
+    display: block;
+
+}
+
+.rating .starts {
+    background-color: #08AEEC;
+    border-radius: 5px;
+    padding: 2px 3px;
+    color: white !important;
+    font-weight: 500;
+}
+
+.rating .starts i {
+    color: white !important;
+}
+
+.delivery_option span,
+.delivery_option i {
+    color: #08AEEC;
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+.has_items ul {
+    border-left: 1px solid #a09e9e;
+}
+
+
+/* top-brands */

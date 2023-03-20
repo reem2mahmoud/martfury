@@ -269,6 +269,11 @@
             display: none;
         }
 
+        .fawry_block,
+        .vodafone_block {
+            display: none;
+        }
+
         .add_card_btn,
         .submit_new_card,
         .continu_btn,
@@ -1907,12 +1912,12 @@
                                     <form>
                                         <!-- visa -->
                                         <div class="visa d-flex flex-column justify-content-center mt-3">
-                                            <div class=" row method d-flex justify-content-between align-items-center">
+                                            <div class="row method d-flex justify-content-between align-items-center">
                                                 <div class="form-check d-flex">
-                                                    <label class="form-check-label" for="radio1">
-                                                        <input type="radio" class="form-check-input" id="radio1"
-                                                            name="optradio" value="option1" checked>visa
-                                                    </label>
+                                                    <label class="form-check-label" for="visa_pay"></label>
+                                                    <input type="radio" class="form-check-input" id="visa_pay"
+                                                        name="pay" value="visa">visa
+
                                                 </div>
                                                 <div>
                                                     <img class="mx-5" src="./visa.png" alt="visa" width="60"
@@ -2045,15 +2050,15 @@
                                             class="vodafone-cash d-flex flex-column justify-content-center pb-4 mt-4 border-bottom">
                                             <div class="row method d-flex justify-content-between align-items-center ">
                                                 <div class="form-check">
-                                                    <label class="form-check-label" for="vodafone_check">
-                                                        <input type="radio" class="form-check-input" id="vodafone_check"
-                                                            name="optradio" value="option2">vodafone cash
-                                                    </label>
+                                                    <label class="form-check-label" for="vodafone_check"> </label>
+                                                    <input type="radio" class="form-check-input" id="vodafone_check"
+                                                        name="pay" value="vodafone">vodafone cash
+
                                                 </div>
                                                 <img src="./vodafone-cash.png" alt="vodafone cash" width="60"
                                                     height="50">
                                             </div>
-                                            <div class="show_details_block  details my-4">
+                                            <div class="vodafone_block show_details_block  details my-4">
                                                 <div class="transfer_number py-4 px-3">
                                                     <p class="text-center my-3">
                                                         <span class="fonr-weight-bold">transfer
@@ -2107,14 +2112,14 @@
                                             class="fawry mt-4 d-flex flex-column justify-content-center pb-4 border-bottom">
                                             <div class="row method d-flex justify-content-between align-items-center ">
                                                 <div class="form-check">
-                                                    <label class="form-check-label" for="fawry">
-                                                        <input type="radio" class="form-check-input" id="fawry"
-                                                            name="optradio" value="option2">fawry
-                                                    </label>
+                                                    <label class="form-check-label" for="fawry"> </label>
+                                                    <input type="radio" class="form-check-input" id="fawry" name="pay"
+                                                        value="fawry">fawry
+
                                                 </div>
                                                 <img src="./fawry.svg" alt="vodafone cash" width="60" height="50">
                                             </div>
-                                            <div class="show_details_block  details my-4">
+                                            <div class="fawry_block show_details_block  details my-4">
                                                 <div class="transfer_number py-4 px-3">
                                                     <p class="text-center my-3">
                                                         <span class="fonr-weight-bold">transfer
@@ -2167,10 +2172,10 @@
                                         <div class="cash mt-4 d-flex flex-column justify-content-center pb-4">
                                             <div class="row method d-flex justify-content-between align-items-center ">
                                                 <div class="form-check">
-                                                    <label class="form-check-label" for="cash">
-                                                        <input type="radio" class="form-check-input" id="cash"
-                                                            name="optradio" value="option2">cash on delivery
-                                                    </label>
+                                                    <label class="form-check-label" for="cash"> </label>
+                                                    <input type="radio" class="form-check-input" id="cash" name="pay"
+                                                        value="cash">cash on delivery
+
                                                 </div>
                                                 <img src="./cash.svg" alt="vodafone cash" width="60" height="50">
                                             </div>
@@ -3017,22 +3022,27 @@
             $(this).addClass('current');
             $("#" + tab_id).addClass('current');
         })
-        // card
+        // // card
 
+        // $('#vodafone_check').click(function () {
+        //     if ($('#vodafone_check').is(':checked')) {
+        //         $(".show_details_block").css("display", "none");
+        //         $(".vodafone_block").css("display", "block");
+        //         // $(".fawry_block").css("display", "none");
+        //     }
+        // });
 
-        $('#vodafone_check').click(function () {
-            if ($('#vodafone_check').is(':checked')) {
-                $(".vodafone-cash .details").toggleClass("show_details_block")
-            }
-        });
-        $('#fawry').click(function () {
-            if ($('#fawry').is(':checked')) {
-                $(".fawry .details").toggleClass("show_details_block")
-            }
-        });
+        // $('#fawry').click(function () {
+        //     if ($('#fawry').is(':checked')) {
+        //         $(".show_details_block").css("display", "none");
+        //         $(".fawry_block").css("display", "block");
+        //         // $(".vodafone_block").css("display", "none");
+        //     }
+        // });
+
         $('#cash').click(function () {
             if ($('#cash').is(':checked')) {
-                $(".cash .details").toggleClass("show_details_block")
+                $(".show_details_block").css("display", "none");
             }
         });
 
