@@ -1,4 +1,8 @@
 /* slider */
+#homepage-1 .section {
+    padding-bottom: 80px
+}
+
 #homepage-1 .ps-home-banner {
     display: block;
     height: 265px;
@@ -21,10 +25,12 @@
 .ps-section__header {
     background-color: #08AEEC;
     padding: 10px;
-    border-radius: 5px
+    border-radius: 5px;
+    margin-bottom: 65px
 }
 
-.ps-deal-of-day .ps-block__left h3 {
+.ps-deal-of-day .ps-block__left h4,
+.ps-offers h4 {
     color: #FFF;
     margin-bottom: 0;
     font-size: 24px;
@@ -51,23 +57,16 @@
 }
 
 /* all-features */
-.all-features .item-feature {
-    background: #f7ebec;
-    border-radius: 50%;
+.all-features .feature_block {
+    background-color: rgb(250, 222, 222);
     width: 90px;
     height: 90px;
+    border-radius: 50%;
     display: flex;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.all-features .item-feature img {
+.all-features .feature_block img {
     margin: auto
-}
-
-.all-features .feature-title {
-    text-transform: capitalize;
-    font-size: 15px;
-    margin-top: 5px;
 }
 
 /* top-selling , new-arrivals  , last-viewed */
@@ -105,12 +104,10 @@
 }
 
 .sort_block select {
-    /* Reset Select */
     appearance: none;
     outline: 0;
     border: 0;
     box-shadow: none;
-    /* Personalize */
     flex: 1;
     padding: 0 1em;
     color: #fff;
@@ -219,3 +216,53 @@
 
 
 /* top-brands */
+.ps-top-brands h4 {
+    color: #FFF;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 70px;
+    text-transform: capitalize;
+}
+
+.brand_block {
+    border: 1px solid #f8f7f7;
+    text-align: center;
+    padding: 29px 0;
+    border-radius: 10px;
+}
+
+.brand_block img {
+    margin: auto
+}
+
+.brand_block:hover img {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* offers */
+.offer_block {
+    width: 160px;
+    height: 190px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 1px solid #f1eeee;
+    border-radius: 10px;
+
+
+}
+
+.offer_block p {
+
+    font-size: 20px;
+}
+
+.offer_block img {
+    margin: auto;
+
+
+}
+
+.offer_block:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}

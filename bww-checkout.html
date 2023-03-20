@@ -351,6 +351,20 @@
             transition: 0.3s ease all;
         }
 
+        #tab-3 form {
+            width: 100%;
+        }
+
+        .add_card_block {
+            background-color: #f7f2f2;
+            margin: 10px;
+            padding: 10px 0;
+        }
+
+        .add_card_block button {
+            margin: 10px;
+        }
+
 
         /*------ease effect------*/
         .nav-justified>li {
@@ -1906,17 +1920,18 @@
                                 </div>
                             </div>
                             <div class="tab-content" id="tab-3">
-                                <div class="d-flex flex-column payment_methods">
-                                    <p>select method to pay for your order</p>
+                                <form>
+                                    <div class="d-flex flex-column payment_methods">
+                                        <p>select method to pay for your order</p>
 
-                                    <form>
+
                                         <!-- visa -->
                                         <div class="visa d-flex flex-column justify-content-center mt-3">
                                             <div class="row method d-flex justify-content-between align-items-center">
                                                 <div class="form-check d-flex">
-                                                    <label class="form-check-label" for="visa_pay"></label>
-                                                    <input type="radio" class="form-check-input" id="visa_pay"
-                                                        name="pay" value="visa">visa
+                                                    <label class="form-check-label" for="visa_pay">
+                                                        <input type="radio" class="form-check-input" id="visa_check"
+                                                            name="pay" value="visa">visa</label>
 
                                                 </div>
                                                 <div>
@@ -1925,11 +1940,14 @@
                                                     <img src="./mastercard.svg" alt="visa" width="60" height="50">
                                                 </div>
                                             </div>
-                                            <button class="btn  mx-auto mb-4 add_card_btn" type="button"
-                                                data-toggle="collapse" data-target="#collapseExample"
-                                                aria-expanded="false" aria-controls="collapseExample">
-                                                add new card
-                                            </button>
+                                            <div class="text-center add_card_block">
+                                                <button disabled class="btn  mx-auto mb-4 add_card_btn" type="button"
+                                                    data-toggle="collapse" data-target="#collapseExample"
+                                                    aria-expanded="false" aria-controls="collapseExample">
+                                                    add new card
+                                                </button>
+                                            </div>
+
                                             <div class="collapse details flex-center  border bg-light p-4"
                                                 id="collapseExample">
                                                 <form class="popup flex p-lg">
@@ -2050,9 +2068,10 @@
                                             class="vodafone-cash d-flex flex-column justify-content-center pb-4 mt-4 border-bottom">
                                             <div class="row method d-flex justify-content-between align-items-center ">
                                                 <div class="form-check">
-                                                    <label class="form-check-label" for="vodafone_check"> </label>
-                                                    <input type="radio" class="form-check-input" id="vodafone_check"
-                                                        name="pay" value="vodafone">vodafone cash
+                                                    <label class="form-check-label" for="vodafone_check">
+                                                        <input type="radio" class="form-check-input" id="vodafone_check"
+                                                            name="pay" value="vodafone">vodafone
+                                                        cash</label>
 
                                                 </div>
                                                 <img src="./vodafone-cash.png" alt="vodafone cash" width="60"
@@ -2112,9 +2131,10 @@
                                             class="fawry mt-4 d-flex flex-column justify-content-center pb-4 border-bottom">
                                             <div class="row method d-flex justify-content-between align-items-center ">
                                                 <div class="form-check">
-                                                    <label class="form-check-label" for="fawry"> </label>
-                                                    <input type="radio" class="form-check-input" id="fawry" name="pay"
-                                                        value="fawry">fawry
+                                                    <label class="form-check-label" for="fawry">
+                                                        <input type="radio" class="form-check-input" id="fawry"
+                                                            name="pay" value="fawry">fawry
+                                                    </label>
 
                                                 </div>
                                                 <img src="./fawry.svg" alt="vodafone cash" width="60" height="50">
@@ -2172,9 +2192,9 @@
                                         <div class="cash mt-4 d-flex flex-column justify-content-center pb-4">
                                             <div class="row method d-flex justify-content-between align-items-center ">
                                                 <div class="form-check">
-                                                    <label class="form-check-label" for="cash"> </label>
-                                                    <input type="radio" class="form-check-input" id="cash" name="pay"
-                                                        value="cash">cash on delivery
+                                                    <label class="form-check-label" for="cash">
+                                                        <input type="radio" class="form-check-input" id="cash"
+                                                            name="pay" value="cash">cash on delivery</label>
 
                                                 </div>
                                                 <img src="./cash.svg" alt="vodafone cash" width="60" height="50">
@@ -2187,11 +2207,8 @@
                                         <div class="row my-3">
                                             <button class="col-3 mx-auto btn continu_btn">Submit</button>
                                         </div>
-                                    </form>
-
-
-
-                                </div>
+                                    </div>
+                                </form>
                                 <hr>
                             </div>
                         </div>
@@ -3024,26 +3041,40 @@
         })
         // // card
 
-        // $('#vodafone_check').click(function () {
-        //     if ($('#vodafone_check').is(':checked')) {
-        //         $(".show_details_block").css("display", "none");
-        //         $(".vodafone_block").css("display", "block");
-        //         // $(".fawry_block").css("display", "none");
-        //     }
-        // });
+        $('#vodafone_check').click(function () {
+            if ($('#vodafone_check').is(':checked')) {
+                $(".show_details_block").css("display", "none");
+                $(".vodafone_block").css("display", "block");
 
-        // $('#fawry').click(function () {
-        //     if ($('#fawry').is(':checked')) {
-        //         $(".show_details_block").css("display", "none");
-        //         $(".fawry_block").css("display", "block");
-        //         // $(".vodafone_block").css("display", "none");
-        //     }
-        // });
+            }
+        });
+
+        $('#fawry').click(function () {
+            if ($('#fawry').is(':checked')) {
+                $(".show_details_block").css("display", "none");
+                $(".fawry_block").css("display", "block");
+
+            }
+        });
 
         $('#cash').click(function () {
             if ($('#cash').is(':checked')) {
                 $(".show_details_block").css("display", "none");
+
             }
+        });
+
+        $('#visa_check').click(function () {
+            if ($('#visa_check').is(':checked')) {
+                $('.add_card_btn').prop('disabled', false);
+                $(".show_details_block").css("display", "none");
+
+            }
+        });
+        $('.add_card_btn').click(function () {
+
+            $(".show_details_block").css("display", "none");
+
         });
 
 
