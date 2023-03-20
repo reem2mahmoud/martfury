@@ -32,6 +32,18 @@
         }
 
         /* sections */
+        .list-group-item {
+            border: 0 !important;
+
+        }
+
+        .list-group-submenu,
+        .sub_menu {
+            margin-left: 15px;
+            border-left: 1px solid #ddd;
+            padding: 0 8px;
+        }
+
         .filter-section .card,
         .products-section .card {
             background-color: #fff
@@ -1244,35 +1256,42 @@
                                 <p class="text-uppercase">category</p>
                                 <div>
                                     <p class="category-name text-capitalize">supermarket</p>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div>
+                                                <div id="MainMenu">
+                                                    <div class="list-group panel">
+                                                        <a href="#category" class="list-group-item has_list_items"
+                                                            data-toggle="collapse" data-parent="#MainMenu">
+                                                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                                            Beauty & health</a>
+                                                        <div class="collapse sub_menu" id="category">
+                                                            <a href="#SubMenu1" class="list-group-item has_list_items"
+                                                                data-toggle="collapse" data-parent="#SubMenu1">
+                                                                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                                                beauty
+                                                            </a>
+                                                            <div class="collapse list-group-submenu" id="SubMenu1">
+                                                                <a href="#" class="list-group-item"
+                                                                    data-parent="#SubMenu1">health care</a>
+                                                                <a href="#" class="list-group-item"
+                                                                    data-parent="#SubMenu1">medical supplies</a>
 
-                                    <ul id="departments">
-                                        <li class="has_items category">
-                                            <a href="#">
+                                                                <a href="#" class="list-group-item"
+                                                                    data-parent="#SubMenu1">wellness</a>
+                                                                <a href="#" class="list-group-item"
+                                                                    data-parent="#SubMenu1">vitamins</a>
+                                                            </div>
 
-                                                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                                air fresheners </a>
-                                            <ul class="sub-category hide">
-                                                <li class="has_items sub-category-item">
-                                                    <a href="#">
-                                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i> One</a>
-                                                    <ul class="sections hide">
-                                                        <li class="section-item">11</li>
-                                                        <li class="section-item">22</li>
-                                                        <li class="section-item">33</li>
-                                                    </ul>
-                                                </li>
-                                                <li class="has_items sub-category-item">
-                                                    <a href="#">
-                                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i> two</a>
-                                                    <ul class="sections hide">
-                                                        <li class="section-item">111</li>
-                                                        <li class="section-item">222</li>
-                                                        <li class="section-item">333</li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -2387,17 +2406,12 @@
             });
 
         });
-        // $("#departments > li").click(function () {
-        //     $(this).find("ul.sub-category").toggleClass('hide');
-        //     $(this).find('.fa-plus').toggleClass('fa-minus')
-        // });
-
-        $('.has_items').click(function () {
-
-            $(this).children("ul").toggleClass("hide")
-            $(this).children('a').find('.fa-plus-square-o').toggleClass('fa-minus-square-o')
+        //  there is issue here , plus couldnot toggle
+        $(".has_list_items").click(function () {
+            var index = $(this).index();
+            console.log("has", $('.fa-plus-square-o').eq(index))
+            $(this).find('.fa-plus-square-o').eq(index).toggleClass('fa-minus-square-o')
         })
-
 
 
     </script>
