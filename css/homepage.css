@@ -1,4 +1,24 @@
-/* slider */
+.ps-section__header {
+    background-color: #08AEEC;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 65px
+}
+
+.ps-section__header h4 {
+    color: #FFF;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 400;
+    margin-right: 70px;
+    text-transform: capitalize;
+}
+
+#homepage-1 {
+    background-color: #F5F5F5
+}
+
+/*******************************************slider ******************************/
 #homepage-1 .section {
     padding-bottom: 80px
 }
@@ -20,24 +40,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-/* deals */
-.ps-deal-of-day .ps-section__header,
-.ps-section__header {
-    background-color: #08AEEC;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 65px
-}
-
-.ps-deal-of-day .ps-block__left h4,
-.ps-offers h4 {
-    color: #FFF;
-    margin-bottom: 0;
-    font-size: 24px;
-    font-weight: 400;
-    margin-right: 70px;
-    text-transform: capitalize;
-}
+/*****************************************deals**********************************/
 
 .ps-deal-of-day .ps-section__header>a,
 .ps-product-list .ps-section__header>a {
@@ -56,7 +59,7 @@
     height: 50px
 }
 
-/* all-features */
+/******************************* all-features **********************************/
 .all-features .feature_block {
     background-color: rgb(250, 222, 222);
     width: 90px;
@@ -69,7 +72,13 @@
     margin: auto
 }
 
-/* top-selling , new-arrivals  , last-viewed */
+/***************************************ads**************************************/
+.ps-ads .ads_block img {
+    width: 100%;
+    border-radius: 10px
+}
+
+/************************* top-selling , new-arrivals  , last-viewed *************/
 
 .ps-product-list .ps-section__header {
     background-color: #08AEEC;
@@ -230,6 +239,7 @@
     text-align: center;
     padding: 29px 0;
     border-radius: 10px;
+    background-color: white;
 }
 
 .brand_block img {
@@ -240,15 +250,14 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-/* offers */
+/********************************************* offers *****************************/
 .offer_block {
     width: 160px;
     height: 190px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border: 1px solid #f1eeee;
     border-radius: 10px;
-
-
+    background-color: white
 }
 
 .offer_block p {
@@ -258,11 +267,23 @@
 
 .offer_block img {
     margin: auto;
-
-
 }
 
 .offer_block:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+}
+
+/******************************************* events *****************************/
+.ps-events .event {
+    height: 200px;
+    border-radius: 15px;
+    padding: 0;
+
+}
+
+.ps-events .event img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
 }
