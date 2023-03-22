@@ -26,7 +26,40 @@
     <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        /* note ::  .ps-breadcrumb ==> this should be added in style.css file 
+                                       because this part from the main content  */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-transform: capitalize;
+        }
+
+        .ps-breadcrumb {
+            padding: 20px 0
+        }
+
         /* show product */
+        .owl-carousel .owl-nav button.owl-next,
+        .owl-carousel .owl-nav button.owl-prev {
+            background-color: #f1eaea;
+            border-radius: 50%;
+            margin: 0 20px;
+            opacity: 0.5;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border: 1px solid rgb(88, 87, 87)
+        }
+
+
+        .ps-home-banner .ps-carousel--nav-inside .owl-dots .owl-dot {
+            background-color: #b3afaf !important;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
         .ps-page__container {
             margin: 0 auto;
         }
@@ -48,9 +81,10 @@
 
 
         .ps-product__price .price-after .sale_percentage {
-            background-color: rgb(238, 224, 144);
+            background-color: #CEF1E4;
             margin: 0 30px;
-            padding: 0 5px
+            padding: 0 5px;
+            color: #08AEEC;
         }
 
         .ps-product--detail .ps-product__shopping .ps-btn {
@@ -118,6 +152,10 @@
 
         }
 
+        .seller_performance p {
+            margin-top: 10px
+        }
+
         .seller_performance .fa-check-square-o {
             font-size: 1.3vw;
             color: #08AEEC;
@@ -126,7 +164,11 @@
 
         .seller_performance span {
             font-size: 1vw;
-            margin: 0 16px;
+
+        }
+
+        .seller_performance span:nth-of-type(1) {
+            margin-left: 16px;
         }
 
         .seller_details .shop-details {
@@ -150,7 +192,7 @@
         .widget_features p {
 
             padding: 0;
-            margin: 0
+            margin: 5px 0;
         }
 
         .ps-page__right .ps-page__right_first {
@@ -184,6 +226,72 @@
             background-color: #e7e1e1;
 
         }
+
+        .submit button {
+            color: white !important;
+            background-color: #08AEEC !important;
+        }
+
+        .product_details:hover {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border: none
+        }
+
+        .product_details:hover .cart_btn {
+            display: block;
+
+        }
+
+        .rating .starts {
+            background-color: #08AEEC;
+            border-radius: 5px;
+            padding: 2px 3px;
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .rating .starts i {
+            color: white !important;
+        }
+
+        .delivery_option span,
+        .delivery_option i {
+            color: #08AEEC;
+            font-size: 11px;
+            font-weight: 600;
+
+        }
+
+        .heart {
+            width: 77px;
+            height: 73px;
+            background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            transition: background-position 1s steps(28);
+            transition-duration: 0s;
+        }
+
+        .heart.is-active {
+            transition-duration: 1s;
+            background-position: -2800px 0;
+        }
+
+        .cart_btn {
+            background-color: #08AEEC;
+            color: white;
+            font-size: 15px;
+            text-transform: capitalize;
+            font-weight: 600;
+            display: none;
+        }
+
+        .product_details:hover {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border: none
+        }
+
+
 
         /* footer */
 
@@ -272,7 +380,7 @@
             font-size: 25px;
         }
 
-        /* media */
+        /* media--footer */
         @media screen and (max-width: 1199.99px) {
             .welcome-message {
                 text-align: center
@@ -281,44 +389,6 @@
         }
 
         @media screen and (max-width: 992px) {
-
-            .ps-page--product .ps-page__container {
-                flex-flow: column wrap;
-            }
-
-            .ps-page--product .ps-page__container .ps-page__right,
-            .ps-page--product .ps-page__container .ps-page__left {
-                max-width: 100% !important;
-            }
-
-            .ps-page__right aside {
-                max-width: 80% !important;
-                margin: 10px auto;
-
-            }
-
-            .seller_performance span {
-                font-size: 1.3vw
-            }
-
-            .seller_performance .fa-check-square-o {
-                font-size: 1.5vw;
-
-            }
-
-            .ps-product__price .price-after {
-                font-size: 1.7vw;
-
-            }
-
-            .product-size div {
-                font-size: 2vw
-            }
-
-            .ps-product--detail .ps-product__shopping .ps-product__actions a i {
-                font-size: 2vw;
-            }
-
             .ps-footer button {
 
                 font-size: 11px;
@@ -328,8 +398,6 @@
             .liks span {
                 font-size: 12px
             }
-
-
         }
 
         @media screen and (max-width: 900px) {
@@ -356,12 +424,126 @@
         }
 
         @media screen and (max-width: 768px) {
+            .main-footer {
+                text-align: center;
+            }
+
+            .connect_container {
+                text-align: center
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            .footer-links {
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media screen and (max-width : 577px) {
+
+
+            .link-details {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center
+            }
+
+        }
+
+        @media screen and (max-width: 400px) {
+            .link-details h5 {
+                font-size: 11px
+            }
+        }
+
+
+
+        /* media-product */
+        @media screen and (min-width: 1600px) and (max-width: 1850px) {
+
+
             .seller_performance span {
-                font-size: 1.8vw
+                font-size: 0.9vw;
+
+            }
+
+            .seller_performance span:nth-of-type(1) {
+                margin: 0 25px;
+            }
+
+            .seller_performance span:nth-of-type(2) {
+                margin: 0 29px;
+            }
+
+            .ps-product--detail .ps-product__shopping .ps-product__actions a i {
+                font-size: 1.4vw;
+            }
+        }
+
+        @media screen and (min-width: 1300px) and (max-width: 1599.99px) {
+            .seller_performance span {
+                font-size: 0.9vw;
+
+            }
+
+            .seller_performance span:nth-of-type(1) {
+                margin-left: 25px
+            }
+
+
+
+        }
+
+        @media screen and (max-width: 992px) {
+
+            .ps-page--product .ps-page__container {
+                flex-flow: column wrap;
+            }
+
+            .ps-page--product .ps-page__container .ps-page__right,
+            .ps-page--product .ps-page__container .ps-page__left {
+                max-width: 100% !important;
+            }
+
+            .ps-page__right aside {
+                max-width: 80% !important;
+                margin: 10px auto;
+
+            }
+
+            .seller_performance span {
+                font-size: 1.6vw
             }
 
             .seller_performance .fa-check-square-o {
+                font-size: 1.8vw;
+                margin: 3px 0
+            }
+
+            .ps-product__price .price-after {
+                font-size: 1.7vw;
+
+            }
+
+            .product-size div {
+                font-size: 2vw
+            }
+
+            .ps-product--detail .ps-product__shopping .ps-product__actions a i {
                 font-size: 2vw;
+            }
+        }
+
+
+        @media screen and (max-width: 768px) {
+
+            .seller_performance span {
+                font-size: 2.3vw
+            }
+
+            .seller_performance .fa-check-square-o {
+                font-size: 2.3vw;
 
             }
 
@@ -382,34 +564,12 @@
                 font-size: 3vw;
             }
 
-            .main-footer {
-                text-align: center;
-            }
 
-            .connect_container {
-                text-align: center
-            }
 
 
         }
 
-        @media screen and (max-width: 650px) {
-            .footer-links {
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
 
-        @media screen and (max-width : 577px) {
-
-
-            .link-details {
-                flex-direction: column;
-                justify-content: center;
-                text-align: center
-            }
-
-        }
 
         @media screen and (max-width: 500px) {
 
@@ -444,11 +604,6 @@
             }
         }
 
-        @media screen and (max-width: 400px) {
-            .link-details h5 {
-                font-size: 11px
-            }
-        }
 
         @media screen and (max-width: 350px) {
             .ps-product__price .price-before del {
@@ -472,29 +627,7 @@
 </head>
 
 <body>
-    <header class="header header--product" data-sticky="true">
-        <nav class="navigation">
-            <div class="container">
-                <article class="ps-product--header-sticky">
-                    <div class="ps-product__thumbnail"><img src="img/products/detail/fullwidth/1.jpg" alt="" /></div>
-                    <div class="ps-product__wrapper">
-                        <div class="ps-product__content"><a class="ps-product__title" href="#">Marshall Kilburn Portable
-                                Wireless Speaker</a>
-                            <ul class="ps-tab-list">
-                                <li class="active"><a href="#tab-1">Description</a></li>
-                                <li><a href="#tab-2">Specification</a></li>
-                                <li><a href="#tab-4">Reviews (1)</a></li>
-                                <li><a href="#tab-6">More Offers</a></li>
-                            </ul>
-                        </div>
-                        <div class="ps-product__shopping"><span class="ps-product__price"><span>$100.56</span>
-                                <del>$106.22</del></span><a class="ps-btn" href="#"> Add to Cart</a></div>
-                    </div>
-                </article>
-            </div>
-        </nav>
-    </header>
-    <header class="header header--1" data-sticky="false">
+    <header class="header header--1" data-sticky="true">
         <div class="header__top">
             <div class="ps-container">
                 <div class="header__left">
@@ -1098,8 +1231,7 @@
             </div>
         </div>
     </header>
-    <!-- <nav class="navigation--mobile-product"><a class="ps-btn ps-btn--black" href="shopping-cart.html">Add to cart</a><a
-            class="ps-btn" href="checkout.html">Buy Now</a></nav> -->
+
     <div class="ps-breadcrumb">
         <div class="ps-container">
             <ul class="breadcrumb">
@@ -1251,69 +1383,32 @@
                         </div>
                         <div class="ps-product__content ps-tab-root">
                             <ul class="ps-tab-list">
-                                <li class="active"><a href="#tab-desc">Description</a></li>
-                                <li><a href="#tab-reviews">Reviews (1)</a></li>
-                                <li><a href="#tab-details">details</a></li>
+                                <li class="active"><a href="#tab-overview">overview</a></li>
+
+                                <li><a href="#tab-reviews">reviews (1)</a></li>
 
                             </ul>
                             <div class="ps-tabs">
-                                <div class="ps-tab active" id="tab-desc">
-                                    <div class="ps-document">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div class="details-title">
-                                                <h5 class="text-capitalize">product description EN</h5>
-                                            </div>
+                                <div class="ps-tab active" id="tab-overview">
 
-                                            <div class="divider"></div>
-
-                                        </div>
-                                        <div class="mx-5">
-                                            <h5>english header</h5>
-                                            <p>description in english</p>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div class="details-title">
-                                                <h5 class="text-capitalize">product description AR</h5>
-                                            </div>
-
-                                            <div class="divider"></div>
-
-                                        </div>
-                                        <div class="mx-5">
-                                            <h5>عنوان التفاصيل</h5>
-                                            <p>التفاصيل</p>
-                                        </div>
-
+                                    <div class="my-3">
+                                        <h4>description</h4>
+                                        <hr>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the
+                                            1500s, when an unknown printer took a galley of type and scrambled it to
+                                            make a type specimen book.</p>
                                     </div>
-                                </div>
-                                <div class="ps-tab" id="tab-details">
-                                    <div class="ps-document">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div class="details-title">
-                                                <h5 class="text-capitalize">product details EN</h5>
-                                            </div>
-
-                                            <div class="divider"></div>
-
-                                        </div>
-                                        <div class="mx-5">
-                                            <h5>english header</h5>
-                                            <p>details in english</p>
-                                        </div>
-                                        <div class="d-flex flex-row align-items-center">
-                                            <div class="details-title">
-                                                <h5 class="text-capitalize">product details AR</h5>
-                                            </div>
-
-                                            <div class="divider"></div>
-
-                                        </div>
-                                        <div class="mx-5">
-                                            <h5>عنوان التفاصيل</h5>
-                                            <p>التفاصيل</p>
-                                        </div>
-
+                                    <div class="my-3">
+                                        <h4>details</h4>
+                                        <hr>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the industry's standard dummy text ever since the
+                                            1500s, when an unknown printer took a galley of type and scrambled it to
+                                            make a type specimen book.</p>
                                     </div>
+
+
                                 </div>
                                 <div class="ps-tab" id="tab-reviews">
                                     <div class="row">
@@ -1386,7 +1481,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group submit">
-                                                    <button class="ps-btn">Submit Review</button>
+                                                    <button class="ps-btn" type="button">Submit Review</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -1416,15 +1511,15 @@
                         <div class="seller_performance border-bottom pb-4">
                             <p>
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                <span class="px-2">Order Fulfillment Rate: Excellent</span>
+                                <span class="px-2">Order Fulfillment Rate: </span><span> Excellent</span>
                             </p>
                             <p>
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                <span class="px-2">Quality Score: Excellent</span>
+                                <span class="px-2">Quality Score: </span><span> Excellent</span>
                             </p>
                             <p>
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                <span class="px-2">Customer Rating: Excellent</span>
+                                <span class="px-2">Customer Rating: </span><span> Excellent</span>
                             </p>
                         </div>
                         <h2 class="seller_header mt-4 mb-3">warranty</h2>
@@ -1540,233 +1635,286 @@
                 </div>
 
             </div>
-            <div class="ps-section--default ps-customer-bought">
+            <div class="ps-section--default">
                 <div class="ps-section__header">
                     <h3>Customers who bought this item also bought</h3>
                 </div>
                 <div class="ps-section__content">
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                            <div class="ps-product">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                            src="img/products/shop/4.jpg" alt="" /></a>
-                                    <div class="ps-product__badge hot">hot</div>
-                                    <ul class="ps-product__actions">
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                        <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                                data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                    class="icon-chart-bars"></i></a></li>
-                                    </ul>
+                    <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false"
+                        data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true"
+                        data-owl-item="7" data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4"
+                        data-owl-item-lg="5" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home-9/a-1.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
                                 </div>
-                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">Global
-                                        Office</a>
-                                    <div class="ps-product__content"><a class="ps-product__title"
-                                            href="product-default.html">Xbox One Wireless Controller Black Color</a>
-                                        <div class="ps-product__rating">
-                                            <select class="ps-rating" data-read-only="true">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select><span>01</span>
-                                        </div>
-                                        <p class="ps-product__price">$55.99</p>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">200$</p>
+                                    <p class="price-before"><del>400$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            4.2</span>
+                                        <span class="number">(201)</span>
                                     </div>
-                                    <div class="ps-product__content hover"><a class="ps-product__title"
-                                            href="product-default.html">Xbox One Wireless Controller Black Color</a>
-                                        <p class="ps-product__price">$55.99</p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
                                     </div>
                                 </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                            <div class="ps-product">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                            src="img/products/shop/5.jpg" alt="" /></a>
-                                    <div class="ps-product__badge">-37%</div>
-                                    <ul class="ps-product__actions">
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                        <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                                data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                    class="icon-chart-bars"></i></a></li>
-                                    </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/2.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
                                 </div>
-                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">Robert's
-                                        Store</a>
-                                    <div class="ps-product__content"><a class="ps-product__title"
-                                            href="product-default.html">Grand Slam Indoor Of Show Jumping Novel</a>
-                                        <div class="ps-product__rating">
-                                            <select class="ps-rating" data-read-only="true">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select><span>01</span>
-                                        </div>
-                                        <p class="ps-product__price sale">$32.99 <del>$41.00 </del></p>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">200$</p>
+                                    <p class="price-before"><del>400$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            4.2</span>
+                                        <span class="number">(201)</span>
                                     </div>
-                                    <div class="ps-product__content hover"><a class="ps-product__title"
-                                            href="product-default.html">Grand Slam Indoor Of Show Jumping Novel</a>
-                                        <p class="ps-product__price sale">$32.99 <del>$41.00 </del></p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
                                     </div>
                                 </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                            <div class="ps-product">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                            src="img/products/shop/6.jpg" alt="" /></a>
-                                    <div class="ps-product__badge">-5%</div>
-                                    <ul class="ps-product__actions">
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                        <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                                data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                    class="icon-chart-bars"></i></a></li>
-                                    </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/3.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
                                 </div>
-                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">Youngshop</a>
-                                    <div class="ps-product__content"><a class="ps-product__title"
-                                            href="product-default.html">Sound Intone I65 Earphone White Version</a>
-                                        <div class="ps-product__rating">
-                                            <select class="ps-rating" data-read-only="true">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select><span>01</span>
-                                        </div>
-                                        <p class="ps-product__price sale">$100.99 <del>$106.00 </del></p>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">900$</p>
+                                    <p class="price-before"><del>1000$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            1.2</span>
+                                        <span class="number">(89)</span>
                                     </div>
-                                    <div class="ps-product__content hover"><a class="ps-product__title"
-                                            href="product-default.html">Sound Intone I65 Earphone White Version</a>
-                                        <p class="ps-product__price sale">$100.99 <del>$106.00 </del></p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
                                     </div>
                                 </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                            <div class="ps-product">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                            src="img/products/shop/7.jpg" alt="" /></a>
-                                    <div class="ps-product__badge">-16%</div>
-                                    <ul class="ps-product__actions">
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                        <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                                data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                    class="icon-chart-bars"></i></a></li>
-                                    </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/4.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
                                 </div>
-                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">Youngshop</a>
-                                    <div class="ps-product__content"><a class="ps-product__title"
-                                            href="product-default.html">Korea Long Sofa Fabric In Blue Navy Color</a>
-                                        <div class="ps-product__rating">
-                                            <select class="ps-rating" data-read-only="true">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select><span>01</span>
-                                        </div>
-                                        <p class="ps-product__price sale">$567.89 <del>$670.20 </del></p>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
                                     </div>
-                                    <div class="ps-product__content hover"><a class="ps-product__title"
-                                            href="product-default.html">Korea Long Sofa Fabric In Blue Navy Color</a>
-                                        <p class="ps-product__price sale">$567.89 <del>$670.20 </del></p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
                                     </div>
                                 </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                            <div class="ps-product">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                            src="img/products/shop/8.jpg" alt="" /></a>
-                                    <div class="ps-product__badge">-16%</div>
-                                    <ul class="ps-product__actions">
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                        <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                                data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                    class="icon-chart-bars"></i></a></li>
-                                    </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/6.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
                                 </div>
-                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">Young shop</a>
-                                    <div class="ps-product__content"><a class="ps-product__title"
-                                            href="product-default.html">Unero Military Classical Backpack</a>
-                                        <div class="ps-product__rating">
-                                            <select class="ps-rating" data-read-only="true">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select><span>02</span>
-                                        </div>
-                                        <p class="ps-product__price sale">$35.89 <del>$42.20 </del></p>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
                                     </div>
-                                    <div class="ps-product__content hover"><a class="ps-product__title"
-                                            href="product-default.html">Unero Military Classical Backpack</a>
-                                        <p class="ps-product__price sale">$35.89 <del>$42.20 </del></p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
                                     </div>
                                 </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                            <div class="ps-product">
-                                <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                            src="img/products/shop/9.jpg" alt="" /></a>
-                                    <ul class="ps-product__actions">
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add To Cart"><i class="icon-bag2"></i></a></li>
-                                        <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                                data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                    class="icon-chart-bars"></i></a></li>
-                                    </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/5.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
                                 </div>
-                                <div class="ps-product__container"><a class="ps-product__vendor" href="#">Young shop</a>
-                                    <div class="ps-product__content"><a class="ps-product__title"
-                                            href="product-default.html">Rayban Rounded Sunglass Brown Color</a>
-                                        <div class="ps-product__rating">
-                                            <select class="ps-rating" data-read-only="true">
-                                                <option value="1">1</option>
-                                                <option value="1">2</option>
-                                                <option value="1">3</option>
-                                                <option value="1">4</option>
-                                                <option value="2">5</option>
-                                            </select><span>02</span>
-                                        </div>
-                                        <p class="ps-product__price">$35.89</p>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
                                     </div>
-                                    <div class="ps-product__content hover"><a class="ps-product__title"
-                                            href="product-default.html">Rayban Rounded Sunglass Brown Color</a>
-                                        <p class="ps-product__price">$35.89</p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
                                     </div>
                                 </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
+                            </div>
+                        </div>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/5.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
+                                    </div>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
+                                    </div>
+                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -1774,320 +1922,284 @@
             </div>
             <div class="ps-section--default">
                 <div class="ps-section__header">
-                    <h3>Related products</h3>
+                    <h3>Related Products</h3>
                 </div>
                 <div class="ps-section__content">
-                    <div class="ps-carousel--nav owl-slider" data-owl-auto="true" data-owl-loop="true"
+                    <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false"
                         data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true" data-owl-dots="true"
-                        data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="2" data-owl-item-md="3"
-                        data-owl-item-lg="4" data-owl-item-xl="5" data-owl-duration="1000" data-owl-mousedrag="on">
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/11.jpg" alt="" /></a>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
+                        data-owl-item="7" data-owl-item-xs="2" data-owl-item-sm="3" data-owl-item-md="4"
+                        data-owl-item-lg="5" data-owl-item-xl="6" data-owl-duration="1000" data-owl-mousedrag="on">
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home-9/a-1.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
                             </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Robert's Store</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">Men’s Sports Runnning Swim Board Shorts</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">200$</p>
+                                    <p class="price-before"><del>400$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            4.2</span>
+                                        <span class="number">(201)</span>
                                     </div>
-                                    <p class="ps-product__price">$13.43</p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
+                                    </div>
                                 </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">Men’s Sports Runnning Swim Board Shorts</a>
-                                    <p class="ps-product__price">$13.43</p>
-                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/12.jpg" alt="" /></a>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/2.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
                             </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Global Office</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">Paul’s Smith Sneaker InWhite Color</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">200$</p>
+                                    <p class="price-before"><del>400$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            4.2</span>
+                                        <span class="number">(201)</span>
                                     </div>
-                                    <p class="ps-product__price">$75.44</p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
+                                    </div>
                                 </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">Paul’s Smith Sneaker InWhite Color</a>
-                                    <p class="ps-product__price">$75.44</p>
-                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/13.jpg" alt="" /></a>
-                                <div class="ps-product__badge">-7%</div>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/3.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
                             </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Young Shop</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">MVMTH Classical Leather Watch In Black</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">900$</p>
+                                    <p class="price-before"><del>1000$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            1.2</span>
+                                        <span class="number">(89)</span>
                                     </div>
-                                    <p class="ps-product__price sale">$57.99 <del>$62.99 </del></p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
+                                    </div>
                                 </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">MVMTH Classical Leather Watch In Black</a>
-                                    <p class="ps-product__price sale">$57.99 <del>$62.99 </del></p>
-                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/14.jpg" alt="" /></a>
-                                <div class="ps-product__badge">-7%</div>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/4.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
                             </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Global Office</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">Beat Spill 2.0 Wireless Speaker – White</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
                                     </div>
-                                    <p class="ps-product__price sale">$57.99 <del>$62.99 </del></p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
+                                    </div>
                                 </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">Beat Spill 2.0 Wireless Speaker – White</a>
-                                    <p class="ps-product__price sale">$57.99 <del>$62.99 </del></p>
-                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/15.jpg" alt="" /></a>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/6.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
                             </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Young Shop</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">ASUS Chromebook Flip – 10.2 Inch</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
                                     </div>
-                                    <p class="ps-product__price sale">$332.38</p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
+                                    </div>
                                 </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">ASUS Chromebook Flip – 10.2 Inch</a>
-                                    <p class="ps-product__price sale">$332.38</p>
-                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/16.jpg" alt="" /></a>
-                                <div class="ps-product__badge">-7%</div>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/5.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
                             </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Young Shop</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">Apple Macbook Retina Display 12&quot;</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
                                     </div>
-                                    <p class="ps-product__price sale">$1200.00 <del>$1362.99 </del></p>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
+                                    </div>
                                 </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">Apple Macbook Retina Display 12&quot;</a>
-                                    <p class="ps-product__price sale">$1200.00 <del>$1362.99 </del></p>
-                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/17.jpg" alt="" /></a>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
+                        <div class="product_details">
+                            <img class="card-img-top" src="./img/products/home/5.jpg" alt="Card image cap">
+                            <div style="position: absolute;top: -29px;right: 6px;">
+
+                                <div class="stage">
+                                    <div class="heart"></div>
+                                </div>
+
                             </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Robert's Store</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">Samsung UHD TV 24inch</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+                            <div class="card-body">
+                                <!-- title -->
+                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
+                                <!-- price -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="price-after text-danger">800$</p>
+                                    <p class="price-before"><del>380$</del></p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <!-- rating  -->
+
+                                    <div class="rating mb-3">
+                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                            2.6</span>
+                                        <span class="number">(101)</span>
                                     </div>
-                                    <p class="ps-product__price">$599.00</p>
-                                </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">Samsung UHD TV 24inch</a>
-                                    <p class="ps-product__price">$599.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/18.jpg" alt="" /></a>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Robert's Store</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">EPSION Plaster Printer</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
+
+
+                                    <!-- delivery -->
+                                    <div class="delivery_option mb-3">
+
+                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        <span class="text-uppercase">express</span>
                                     </div>
-                                    <p class="ps-product__price">$233.28</p>
                                 </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">EPSION Plaster Printer</a>
-                                    <p class="ps-product__price">$233.28</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ps-product">
-                            <div class="ps-product__thumbnail"><a href="product-default.html"><img
-                                        src="img/products/shop/19.jpg" alt="" /></a>
-                                <ul class="ps-product__actions">
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i
-                                                class="icon-bag2"></i></a></li>
-                                    <li><a href="#" data-placement="top" title="Quick View" data-toggle="modal"
-                                            data-target="#product-quickview"><i class="icon-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top"
-                                            title="Add to Whishlist"><i class="icon-heart"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i
-                                                class="icon-chart-bars"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="ps-product__container"><a class="ps-product__vendor" href="#">Robert's Store</a>
-                                <div class="ps-product__content"><a class="ps-product__title"
-                                        href="product-default.html">EPSION Plaster Printer</a>
-                                    <div class="ps-product__rating">
-                                        <select class="ps-rating" data-read-only="true">
-                                            <option value="1">1</option>
-                                            <option value="1">2</option>
-                                            <option value="1">3</option>
-                                            <option value="1">4</option>
-                                            <option value="2">5</option>
-                                        </select><span>01</span>
-                                    </div>
-                                    <p class="ps-product__price">$233.28</p>
-                                </div>
-                                <div class="ps-product__content hover"><a class="ps-product__title"
-                                        href="product-default.html">EPSION Plaster Printer</a>
-                                    <p class="ps-product__price">$233.28</p>
-                                </div>
+                                <!-- cart-btn -->
+                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -2686,10 +2798,21 @@
     <!-- custom scripts-->
     <script src="js/main.js"></script>
     <script>
-        // ps-product__actions a i
-        $(".ps-product__actions a i").click(function () {
-            $(this).toggleClass("active-heart")
+
+        $(function () {
+            $(".heart").on("click", function () {
+                $(this).toggleClass("is-active");
+            });
+
+        });
+        //  there is issue here , plus couldnot toggle
+        $(".has_list_items").click(function () {
+            var index = $(this).index();
+            console.log("has", $('.fa-plus-square-o').eq(index))
+            $(this).find('.fa-plus-square-o').eq(index).toggleClass('fa-minus-square-o')
         })
+
+
     </script>
 </body>
 
