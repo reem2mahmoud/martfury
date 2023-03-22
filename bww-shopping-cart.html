@@ -30,6 +30,12 @@
         * {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-transform: capitalize;
+            color: #666;
         }
 
         .warning_block .fa-exclamation-triangle {
@@ -86,12 +92,14 @@
 
 
         .ps-product__price .price-after .sale_percentage {
-            background-color: rgb(238, 224, 144);
+            background-color: rgb(206 241 228);
             margin: 0 30px;
             padding: 0 5px;
             width: fit-content;
             height: fit-content;
-            font-size: 12px
+            font-size: 12px;
+            font-weight: 700;
+            color: #08AEEC;
         }
 
         .cart-actions i {
@@ -105,7 +113,7 @@
             border-radius: 10px;
             width: fit-content;
             height: fit-content;
-            padding: 5px 20px;
+            padding: 5px 10px;
             margin: 20px 10px;
             text-transform: uppercase;
             font-size: 13px
@@ -113,8 +121,8 @@
 
         .form-group--number {
             border-radius: 0 !important;
-            width: 128px;
-            margin: 10px;
+            width: 113px;
+            margin: auto
         }
 
         .form-group--number button {
@@ -156,6 +164,75 @@
             font-size: 15px;
             color: black;
         }
+
+        .address_note {
+            background-color: #FFF8EC;
+            margin-top: 10px;
+        }
+
+        .address_note i {
+            color: #08AEEC;
+            font-size: 28px
+        }
+
+        .address_note span {
+            font-size: 12px;
+            margin: 0 10px
+        }
+
+        .search_cart input {
+            height: 42px;
+            border-radius: 6px 0 0 6px;
+        }
+
+        .search_cart button {
+            height: 42px;
+        }
+
+        .continu_shopping #wishlist_title {
+            font-weight: 600;
+            font-size: 23px;
+        }
+
+        .continu_shopping button {
+
+            color: #08AEEC;
+            font-weight: 500;
+            text-transform: capitalize;
+            border-color: #08AEEC;
+            font-size: 15px
+        }
+
+        .image_container {
+            position: relative;
+            text-align: center;
+            color: red;
+            height: fit-content;
+
+        }
+
+        .image_container img {
+            background-color: #aaa;
+            opacity: 0.5;
+        }
+
+        .out_of_stock_product {
+            position: absolute;
+            bottom: 0px;
+            right: 50px;
+            left: 50px;
+            padding: 10px 5px;
+            opacity: 0.5;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+        }
+
+        .out_of_stock_product .fa-ban {
+            font-size: 20px
+        }
+
+
 
         /* footer */
 
@@ -247,11 +324,72 @@
         .product_price {
             display: flex;
             flex-direction: column;
+            justify-content: center;
+        }
+
+        /* media-cart */
+        @media screen and (min-width: 1330px) {
+            .price-after span:nth-of-type(1) {
+                font-size: 19px
+            }
+        }
+
+        @media screen and (max-width: 1199px) {
+            .out_of_stock_product {
+                font-size: 1.1vw;
+                right: 37px;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .out_of_stock_product {
+                font-size: 1.4vw;
+                right: 39px;
+            }
+        }
+
+        @media screen and (max-width: 880px) {
+            .out_of_stock_product {
+                font-size: 1.5vw;
+                right: 39px;
+            }
         }
 
 
 
-        /* media */
+
+        @media screen and (max-width: 567px) {
+            .ps-product__price .price-before del {
+                font-size: 4vw;
+            }
+
+            .price-after span:nth-of-type(1) {
+                font-size: 3vw;
+            }
+        }
+
+        @media screen and (max-width: 437px) {
+
+
+            .card-footer .cart-actions {
+                margin-bottom: 10px
+            }
+
+            .cart-actions .title_footer {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .warning_block p {
+                font-size: 11px
+            }
+
+        }
+
+
+
+        /* media-footer */
         @media screen and (max-width: 1199.99px) {
             .welcome-message {
                 text-align: center
@@ -1111,15 +1249,6 @@
         </div>
         <div class="ps-section--shopping ps-shopping-cart">
             <div class="container">
-                <div class="row m-2">
-                    <h4>
-                        <a type="button" href="#">
-                            <i class="fa fa-arrow-circle-left me-1" aria-hidden="true"></i>
-                            <!-- in arabic mode -->
-                            <!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> -->
-                            Continue shopping</a>
-                    </h4>
-                </div>
                 <div class="row my-4  warning_block">
                     <div class="col-12 col-lg-8">
                         <div class="card">
@@ -1130,19 +1259,14 @@
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                 </button>
                                 <p class="mx-4 text-secondary">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has
-                                    been the industry's standard dummy text ever since the 1500s, when an unknown
-                                    printer
-                                    took a
-                                    galley of type and scrambled it to make a type specimen book.
+                                    Some of the products in your cart have run out of stock and have been moved to your
+                                    wishlist.
+                                    The prices of some products in your cart have changed.
+                                    Please note that some items in your cart are considered large or bulky and will
+                                    require an additional shipping fee.
+                                    Please review your cart before proceeding.
                                 </p>
-
                             </div>
-
-
-
                         </div>
                     </div>
 
@@ -1150,14 +1274,19 @@
                 <div class="row">
                     <div class="col-12 col-lg-8 mt-4">
                         <div class="card">
-                            <div class="card-header ">
+                            <div class="card-header">
                                 <p> cart <span class="badge badge-pill badge-primary">4</span>
                                 </p>
                             </div>
                             <div class="row card-body">
                                 <!-- product-image -->
-                                <div class="col-3 mt-2">
+                                <div class="col-3 mt-2 image_container">
                                     <img src="./1.jpg" alt="product-name">
+                                    <!-- if product sold out -->
+                                    <div class="out_of_stock_product d-flex flex-column">
+                                        <i class="fa fa-ban" aria-hidden="true"></i>
+                                        out of stock
+                                    </div>
                                 </div>
                                 <!--product-details  -->
                                 <div class="col-6 mt-2">
@@ -1183,17 +1312,25 @@
                                         <img src="./delivery-date.png" width="23" height="23" alt="delivery-date">
                                         <span class="mx-2">Delivery by 2 JAN</span>
                                     </p>
-                                    <p>
 
-                                        <span class="font-weight-bold">size : </span><span class="border p-2">SM</span>
-                                    </p>
-                                    <figure>
-                                        <figcaption>Colors</figcaption>
-                                        <div class="ps-variant ps-variant--color color--1"><span
+
+                                    <div class="size d-flex my-3">
+                                        <p class="font-weight-bold ">Size : </p>
+                                        <div class="mx-3">
+                                            <span class="border p-2">SM</span>
+                                            <span class="border p-2">XL</span>
+
+                                        </div>
+                                    </div>
+                                    <figure class="d-flex align-items-center my-2">
+                                        <figcaption class="font-weight-bold">Colors : </figcaption>
+                                        <div class="ps-variant ps-variant--color color--1 mx-3"><span
                                                 class="ps-variant__tooltip">Black</span></div>
                                         <div class="ps-variant ps-variant--color color--2"><span
                                                 class="ps-variant__tooltip"> Gray</span></div>
                                     </figure>
+
+
                                 </div>
                                 <!-- product-price -->
                                 <div class="col-12 col-md-3  mt-2 product_price">
@@ -1206,9 +1343,10 @@
                                         </p>
                                     </h4>
                                     <!-- shipping -->
-                                    <div class="text-center my-2">
-                                        <p class="shipping_way">
-                                            <i class="fa fa-paper-plane mx-2" aria-hidden="true"></i> express
+                                    <div class="d-flex justify-content-center my-2">
+                                        <p class="shipping_way d-flex align-items-center justify-content-center">
+                                            <i class="fa fa-paper-plane mx-2" aria-hidden="true"></i>
+                                            <span> express</span>
                                         </p>
                                     </div>
                                     <!-- product-count -->
@@ -1219,13 +1357,31 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
+                            <div class="card-footer d-flex justify-content-between align-items-center">
                                 <div class="d-flex mx-3 cart-actions">
-                                    <span class="mx-4"><i class="fa fa-trash-o text-primary" aria-hidden="true"></i>
-                                        remove item</span>
-                                    <span><i class="fa fa-heart-o text-danger" aria-hidden="true"></i> add to
-                                        whishlist</span>
+                                    <span class="mx-4">
+                                        <i class="fa fa-trash-o text-primary" aria-hidden="true"></i>
+                                        <span class="title_footer"> remove item</span>
+
+                                    </span>
+                                    <span><i class="fa fa-heart-o text-danger" aria-hidden="true"></i>
+                                        <span class="title_footer">add to whishlist</span>
+                                    </span>
                                 </div>
+                                <div>
+                                    <button class="btn btn-secondary btn-lg text-uppercase" type="button" disabled>sold
+                                        out</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="continu_shopping my-5">
+                            <button type="button" class="btn  btn-lg">continu shopping</button>
+                            <div class="d-flex justify-content-between my-5">
+                                <p class="d-flex align-items-center">
+                                    <span id="wishlist_title">wishlist</span>
+                                    <span class="mx-3">(10 items)</span>
+                                </p>
+                                <a href="#" class="text-primary text-capitalize">view all</a>
                             </div>
                         </div>
                     </div>
@@ -1237,12 +1393,13 @@
                             <div class="card-body">
                                 <form action="" method="" class="my-4">
                                     <!-- coupon code -->
-                                    <div class="form-group--nest">
+                                    <div class="form-group--nest search_cart mb-4">
                                         <input class="form-control" type="text" placeholder="Coupon Code">
                                         <button class="ps-btn text-white">Apply</button>
                                     </div>
                                     <!-- coupon-code-error  -->
-                                    <span class="text-danger text-capitalize">code valid on select items only</span>
+                                    <span class="text-danger text-capitalize">code valid on select items
+                                        only</span>
                                 </form>
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex">
@@ -1264,6 +1421,12 @@
                             </div>
                         </div>
                         <button class="col-12 btn  my-2 py-3 checkout-btn">procced to checkout</button>
+                        <div class="address_note p-4 text-capitalize d-flex align-items-center">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>select collection point address as the delivery address on checkout
+                                to avoid the shipping fee
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

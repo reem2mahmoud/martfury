@@ -19,21 +19,29 @@
 }
 
 /*******************************************slider ******************************/
+.section_carousel {
+    padding: 0 30px
+}
+
 #homepage-1 .section {
     padding-bottom: 80px
 }
 
-#homepage-1 .ps-home-banner {
+#homepage-1 .ps-home-banner .ps-container {
     display: block;
-    height: 265px;
+    height: 280px;
 }
 
-.ps-home-banner .owl-carousel .owl-nav button.owl-next,
-.ps-home-banner .owl-carousel .owl-nav button.owl-prev {
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
     background-color: #f1eaea;
     border-radius: 50%;
-    margin: 0 30px
+    margin: 0 20px;
+    opacity: 0.5;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid rgb(88, 87, 87)
 }
+
 
 .ps-home-banner .ps-carousel--nav-inside .owl-dots .owl-dot {
     background-color: #b3afaf !important;
@@ -61,16 +69,24 @@
 
 /******************************* all-features **********************************/
 .all-features .feature_block {
-    background-color: rgb(250, 222, 222);
-    width: 90px;
-    height: 90px;
+    background-color: #D0ECF0;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
+    border-left: 12px solid rgb(165 165 215);
     display: flex;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .all-features .feature_block img {
     margin: auto
 }
+
+/* .owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+    margin: 20px 10px;
+    background-color: red;
+} */
 
 /***************************************ads**************************************/
 .ps-ads .ads_block img {
