@@ -26,6 +26,26 @@
     <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1em;
+            color: #252424;
+        }
+
+        html {
+            font-family: sans-serif, serif
+        }
+
+        body {
+            text-transform: capitalize;
+        }
+
         .ps-breadcrumb {
             padding: 20px 0;
         }
@@ -48,8 +68,7 @@
             padding: 0 8px;
         }
 
-        .filter-section .card,
-        .products-section .card {
+        .filter-section .card {
             background-color: #fff
         }
 
@@ -277,7 +296,91 @@
             border-left: 1px solid #a09e9e;
         }
 
+        /* tabs */
+        .nav-pills li {
+            background-color: rgb(212, 208, 208);
+            margin: 0 5px
+        }
 
+        .nav-pills li a {
+            font-size: 18px;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #08AEEC;
+        }
+
+        /* carousel */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #ddd;
+            padding: 17px;
+            border-radius: 50%;
+        }
+
+        /* why-bww */
+        .why_bww {
+            padding: 15px 0;
+            background-color: #D0ECF0
+        }
+
+        .why_bww .reason span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .why_bww .reason i {
+            font-size: 20px;
+            color: #08AEEC;
+        }
+
+        /* categories */
+
+        .ps-categories .card {
+            background-color: #ddedef;
+            border: 0;
+        }
+
+        .owl-carousel .owl-nav button.owl-next,
+        .owl-carousel .owl-nav button.owl-prev {
+            background-color: #f1eaea;
+            border-radius: 50%;
+            margin: 0 20px;
+            opacity: 0.5;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border: 1px solid rgb(88, 87, 87)
+        }
+
+        .feature_block {
+            background-color: #faf4f4;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+
+            display: flex;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        }
+
+        .feature_block img {
+            margin: auto
+        }
+
+        /* price */
+        .ps-price .img_container {
+            width: 94%;
+            margin: auto
+        }
+
+        .card {
+            border: 0
+        }
+
+
+
+
+
+
+        /* media-products */
         @media screen and (min-width: 992px) {
             .container {
                 max-width: 1115px !important;
@@ -299,6 +402,18 @@
 
             }
 
+        }
+
+        @media screen and (max-width: 330px) {
+            .why_bww .reason span {
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .why_bww .reason i {
+                font-size: 15px;
+
+            }
         }
 
 
@@ -398,7 +513,7 @@
 
 
 
-        /* media */
+        /* media--footer */
         @media screen and (max-width: 1199.99px) {
             .welcome-message {
                 text-align: center
@@ -1244,7 +1359,7 @@
                 <ul class="breadcrumb">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop-default.html">Shop</a></li>
-                    <li>shopping-cart</li>
+                    <li>supermarket</li>
                 </ul>
             </div>
         </div>
@@ -1253,7 +1368,7 @@
             <div class="container">
                 <div class="row">
                     <!--BEGIN: filter-section -->
-                    <div class="col-12 col-md-4 col-xl-3  filter-section mt-3">
+                    <div class="col-12 col-md-4 col-xl-3 filter-section mt-3">
                         <div class="card  p-4">
                             <!-- category -->
                             <div class="category pb-4 border-bottom">
@@ -1624,184 +1739,601 @@
 
                     <!--BEGIN: products-section -->
                     <div class="col-12 col-md-8 col-xl-9 products-section mt-3">
+                        <!-- slider -->
                         <div class="card p-4">
-                            <div
-                                class="product_header d-flex justify-content-between align-items-center border-bottom pb-4">
-                                <h4 class="card-title text-capitalize">supermarket</h4>
-                                <div class="sort_block">
-                                    <select>
-                                        <option value="0" disabled selected>Sort By</option>
-                                        <option value="1">recommedned</option>
-                                        <option value="2">new arrivals</option>
-
-                                    </select>
+                            <!-- carousel -->
+                            <div id="carouselExampleControls" class="carousel slide mt-3" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="img/slider/home-1/slide-1.jpg"
+                                            alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="img/slider/home-1/slide-2.jpg"
+                                            alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="img/slider/home-1/slide-3.jpg"
+                                            alt="Third slide">
+                                    </div>
                                 </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                    data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                    data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
                             </div>
-                            <div class="card-body">
-
-                                <!-- products-block -->
-                                <div class="row mt-4">
-                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
-                                        <img class="card-img-top" src="./img/products/home-9/a-1.jpg"
-                                            alt="Card image cap">
-                                        <div style="position: absolute;top: -29px;right: -8px;">
-
-                                            <div class="stage">
-                                                <div class="heart"></div>
-                                            </div>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <!-- title -->
-                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
-                                            <!-- price -->
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p class="price-after text-danger">200$</p>
-                                                <p class="price-before"><del>400$</del></p>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <!-- rating  -->
-
-                                                <div class="rating mb-3">
-                                                    <span class="starts"> <i class="fa fa-star checked"></i>
-                                                        4.2</span>
-                                                    <span class="number">(201)</span>
-                                                </div>
-
-
-                                                <!-- delivery -->
-                                                <div class="delivery_option mb-3">
-
-                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                                    <span class="text-uppercase">express</span>
-                                                </div>
-                                            </div>
-                                            <!-- cart-btn -->
-                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
-                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
-                                        </div>
+                            <!-- why-bww -->
+                            <div class="why_bww">
+                                <div class="d-flex justify-content-center">
+                                    <div class="reason mx-3">
+                                        <i class="fa fa-truck" aria-hidden="true"></i>
+                                        <span>fast delivery</span>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
-                                        <img class="card-img-top" src="./img/products/home/2.jpg" alt="Card image cap">
-                                        <div style="position: absolute;top: -29px;right: -8px;">
-
-                                            <div class="stage">
-                                                <div class="heart"></div>
-                                            </div>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <!-- title -->
-                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
-                                            <!-- price -->
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p class="price-after text-danger">200$</p>
-                                                <p class="price-before"><del>400$</del></p>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <!-- rating  -->
-
-                                                <div class="rating mb-3">
-                                                    <span class="starts"> <i class="fa fa-star checked"></i>
-                                                        4.2</span>
-                                                    <span class="number">(201)</span>
-                                                </div>
-
-
-                                                <!-- delivery -->
-                                                <div class="delivery_option mb-3">
-
-                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                                    <span class="text-uppercase">express</span>
-                                                </div>
-                                            </div>
-                                            <!-- cart-btn -->
-                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
-                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
-                                        </div>
+                                    <div class="reason mx-3">
+                                        <i class="fa fa-truck" aria-hidden="true"></i>
+                                        <span>easy return</span>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
-                                        <img class="card-img-top" src="./img/products/home/3.jpg" alt="Card image cap">
-                                        <div style="position: absolute;top: -29px;right: -8px;">
-
-                                            <div class="stage">
-                                                <div class="heart"></div>
-                                            </div>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <!-- title -->
-                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
-                                            <!-- price -->
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p class="price-after text-danger">900$</p>
-                                                <p class="price-before"><del>1000$</del></p>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <!-- rating  -->
-
-                                                <div class="rating mb-3">
-                                                    <span class="starts"> <i class="fa fa-star checked"></i>
-                                                        1.2</span>
-                                                    <span class="number">(89)</span>
-                                                </div>
-
-
-                                                <!-- delivery -->
-                                                <div class="delivery_option mb-3">
-
-                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                                    <span class="text-uppercase">express</span>
-                                                </div>
-                                            </div>
-                                            <!-- cart-btn -->
-                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
-                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
-                                        </div>
+                                    <div class="reason mx-3">
+                                        <i class="fa fa-truck" aria-hidden="true"></i>
+                                        <span>wide selection</span>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-3  product_details">
-                                        <img class="card-img-top" src="./img/products/home/4.jpg" alt="Card image cap">
-                                        <div style="position: absolute;top: -29px;right: -8px;">
-
-                                            <div class="stage">
-                                                <div class="heart"></div>
-                                            </div>
-
-                                        </div>
-                                        <div class="card-body">
-                                            <!-- title -->
-                                            <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm</p>
-                                            <!-- price -->
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p class="price-after text-danger">800$</p>
-                                                <p class="price-before"><del>380$</del></p>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <!-- rating  -->
-
-                                                <div class="rating mb-3">
-                                                    <span class="starts"> <i class="fa fa-star checked"></i>
-                                                        2.6</span>
-                                                    <span class="number">(101)</span>
-                                                </div>
-
-
-                                                <!-- delivery -->
-                                                <div class="delivery_option mb-3">
-
-                                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                                    <span class="text-uppercase">express</span>
-                                                </div>
-                                            </div>
-                                            <!-- cart-btn -->
-                                            <a href="#" class="btn cart_btn  col-12 mt-auto">
-                                                <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to cart</a>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
+                        <!-- shop-by-categories -->
+                        <div class="ps-categories mt-4">
+                            <h3 class="text-center">shop by categories</h3>
+                            <div class="card p-4 mt-4">
+                                <div class="ps-section__content">
+                                    <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false"
+                                        data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true"
+                                        data-owl-dots="true" data-owl-item="14" data-owl-item-xs="2"
+                                        data-owl-item-sm="5" data-owl-item-md="7" data-owl-item-lg="9"
+                                        data-owl-item-xl="10" data-owl-duration="1000" data-owl-mousedrag="on">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="40"
+                                                    height="40" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="50" height="50"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="ps-section__content">
+                                    <div class="ps-carousel--nav owl-slider" data-owl-auto="false" data-owl-loop="false"
+                                        data-owl-speed="10000" data-owl-gap="30" data-owl-nav="true"
+                                        data-owl-dots="true" data-owl-item="14" data-owl-item-xs="2"
+                                        data-owl-item-sm="5" data-owl-item-md="7" data-owl-item-lg="9"
+                                        data-owl-item-xl="10" data-owl-duration="1000" data-owl-mousedrag="on">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="40"
+                                                    height="40" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="50" height="50"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/33910-6-toy-clipart.png" width="50"
+                                                    height="50" alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">toys</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class=" feature_block">
+
+                                                <img src="./img/home-page/icons/game.png" width="40" height="40"
+                                                    alt="zara">
+
+                                            </div>
+                                            <p class="mt-4">games</p>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- shop-by-price -->
+                        <div class="ps-price mt-4">
+                            <h3 class="text-center">shop by price</h3>
+                            <div class="card p-4 mt-4">
+                                <div class="row">
+                                    <div class="col-3 p-0">
+                                        <div class="img_container">
+                                            <img src="./img/home-page/shop_price/price1.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="img_container">
+                                            <img src="./img/home-page/shop_price/price2.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="img_container">
+                                            <img src="./img/home-page/shop_price/price3.png">
+                                        </div>
+                                    </div>
+                                    <div class="col-3 p-0">
+                                        <div class="img_container">
+                                            <img src="./img/home-page/shop_price/price4.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products-section mt-4">
+                            <div class="card p-4">
+                                <div
+                                    class="product_header d-flex justify-content-between align-items-center border-bottom pb-4">
+                                    <h4 class="card-title text-capitalize">supermarket</h4>
+                                    <div class="sort_block">
+                                        <select>
+                                            <option value="0" disabled selected>Sort By</option>
+                                            <option value="1">recommedned</option>
+                                            <option value="2">new arrivals</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+
+                                    <!-- products-block -->
+                                    <div class="row mt-4">
+                                        <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                            <img class="card-img-top" src="./img/products/home-9/a-1.jpg"
+                                                alt="Card image cap">
+                                            <div style="position: absolute;top: -29px;right: -8px;">
+
+                                                <div class="stage">
+                                                    <div class="heart"></div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- title -->
+                                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm
+                                                </p>
+                                                <!-- price -->
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <p class="price-after text-danger">200$</p>
+                                                    <p class="price-before"><del>400$</del></p>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <!-- rating  -->
+
+                                                    <div class="rating mb-3">
+                                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                                            4.2</span>
+                                                        <span class="number">(201)</span>
+                                                    </div>
+
+
+                                                    <!-- delivery -->
+                                                    <div class="delivery_option mb-3">
+
+                                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                        <span class="text-uppercase">express</span>
+                                                    </div>
+                                                </div>
+                                                <!-- cart-btn -->
+                                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to
+                                                    cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                            <img class="card-img-top" src="./img/products/home/2.jpg"
+                                                alt="Card image cap">
+                                            <div style="position: absolute;top: -29px;right: -8px;">
+
+                                                <div class="stage">
+                                                    <div class="heart"></div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- title -->
+                                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm
+                                                </p>
+                                                <!-- price -->
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <p class="price-after text-danger">200$</p>
+                                                    <p class="price-before"><del>400$</del></p>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <!-- rating  -->
+
+                                                    <div class="rating mb-3">
+                                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                                            4.2</span>
+                                                        <span class="number">(201)</span>
+                                                    </div>
+
+
+                                                    <!-- delivery -->
+                                                    <div class="delivery_option mb-3">
+
+                                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                        <span class="text-uppercase">express</span>
+                                                    </div>
+                                                </div>
+                                                <!-- cart-btn -->
+                                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to
+                                                    cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                            <img class="card-img-top" src="./img/products/home/3.jpg"
+                                                alt="Card image cap">
+                                            <div style="position: absolute;top: -29px;right: -8px;">
+
+                                                <div class="stage">
+                                                    <div class="heart"></div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- title -->
+                                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm
+                                                </p>
+                                                <!-- price -->
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <p class="price-after text-danger">900$</p>
+                                                    <p class="price-before"><del>1000$</del></p>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <!-- rating  -->
+
+                                                    <div class="rating mb-3">
+                                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                                            1.2</span>
+                                                        <span class="number">(89)</span>
+                                                    </div>
+
+
+                                                    <!-- delivery -->
+                                                    <div class="delivery_option mb-3">
+
+                                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                        <span class="text-uppercase">express</span>
+                                                    </div>
+                                                </div>
+                                                <!-- cart-btn -->
+                                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to
+                                                    cart</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-lg-3  product_details">
+                                            <img class="card-img-top" src="./img/products/home/4.jpg"
+                                                alt="Card image cap">
+                                            <div style="position: absolute;top: -29px;right: -8px;">
+
+                                                <div class="stage">
+                                                    <div class="heart"></div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- title -->
+                                                <p class="card-text product_desc">Nestle Coffee Mate Plastic Jar – 400gm
+                                                </p>
+                                                <!-- price -->
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <p class="price-after text-danger">800$</p>
+                                                    <p class="price-before"><del>380$</del></p>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <!-- rating  -->
+
+                                                    <div class="rating mb-3">
+                                                        <span class="starts"> <i class="fa fa-star checked"></i>
+                                                            2.6</span>
+                                                        <span class="number">(101)</span>
+                                                    </div>
+
+
+                                                    <!-- delivery -->
+                                                    <div class="delivery_option mb-3">
+
+                                                        <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                                        <span class="text-uppercase">express</span>
+                                                    </div>
+                                                </div>
+                                                <!-- cart-btn -->
+                                                <a href="#" class="btn cart_btn  col-12 mt-auto">
+                                                    <i class="fa fa-cart-plus mx-2" aria-hidden="true"></i>add to
+                                                    cart</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <!--END: products-section -->
@@ -2404,6 +2936,7 @@
     <!-- custom scripts-->
     <script src="js/main.js"></script>
     <script>
+
         $(function () {
             $(".heart").on("click", function () {
                 $(this).toggleClass("is-active");
@@ -2416,7 +2949,6 @@
             console.log("has", $('.fa-plus-square-o').eq(index))
             $(this).find('.fa-plus-square-o').eq(index).toggleClass('fa-minus-square-o')
         })
-
 
     </script>
 </body>
